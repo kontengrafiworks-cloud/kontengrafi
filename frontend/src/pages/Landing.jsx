@@ -4,7 +4,6 @@ import { BesideYou } from "@/components/site/BesideYou";
 import { PermissionCards } from "@/components/site/PermissionCards";
 import { Process } from "@/components/site/Process";
 import { Testimonials } from "@/components/site/Testimonials";
-import { Plans } from "@/components/site/Plans";
 import { Faq } from "@/components/site/Faq";
 import { FinalCta } from "@/components/site/FinalCta";
 import { Footer } from "@/components/site/Footer";
@@ -21,7 +20,6 @@ export default function Landing() {
             <PermissionCards />
             <Process />
             <Testimonials />
-            <Plans />
             <Faq />
             <FinalCta />
             <Footer />

@@ -1,7 +1,6 @@
 import { waLink } from "@/lib/contacts";
 import { useReveal } from "@/lib/reveal";
 
-// Platform icons sandwiched inline within the headline (Invoko-style)
 const INLINE_PLATFORMS = [
     "instagram",
     "tiktok",
@@ -24,43 +23,42 @@ const MARQUEE_PLATFORMS = [
     { slug: "googlechrome", label: "Chrome" },
 ];
 
-// Annotation overlay: caption + curved arrow pointing DOWN at the icons
-const KamiBantuOverlay = () => (
-    <div
-        className="absolute -top-12 md:-top-16 right-[14%] md:right-[22%] flex flex-col items-end pointer-events-none select-none"
+// Annotation: "kami bantu" caption + arrow CLEARLY pointing left at icons cluster
+const KamiBantuAnnotation = () => (
+    <span
+        className="inline-flex items-end gap-1 align-bottom ml-2 md:ml-3 pb-1"
         aria-hidden
     >
-        <span
-            className="text-lg md:text-2xl text-[#0B1120]/75 leading-none whitespace-nowrap"
-            style={{ fontFamily: "'Caveat', cursive", fontWeight: 600 }}
-        >
-            kami produksi
-        </span>
         <svg
-            width="58"
-            height="60"
-            viewBox="0 0 58 60"
+            width="56"
+            height="40"
+            viewBox="0 0 56 40"
             fill="none"
             stroke="currentColor"
-            strokeWidth="1.6"
+            strokeWidth="1.8"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="text-[#0B1120]/65 mt-1 mr-3"
+            className="text-[#0B1120]/70"
         >
-            {/* Curve from top-right going down then sweeping left to point at icons below */}
-            <path d="M 50 4 C 52 18, 46 32, 24 50" />
-            {/* Arrowhead at bottom-left, pointing down-left at icons */}
-            <path d="M 18 44 L 22 52 L 30 48" />
+            {/* Arrow curving from right going LEFT to point at icons */}
+            <path d="M 52 32 C 38 30, 22 24, 8 14" />
+            {/* Arrowhead at left end */}
+            <path d="M 4 18 L 8 8 L 16 14" />
         </svg>
-    </div>
+        <span
+            className="text-xl md:text-3xl text-[#0B1120]/80 leading-none whitespace-nowrap"
+            style={{ fontFamily: "'Caveat', cursive", fontWeight: 600 }}
+        >
+            kami bantu
+        </span>
+    </span>
 );
 
 export const Hero = () => {
     const r1 = useReveal(0);
-    const r1b = useReveal(120);
-    const r1c = useReveal(220);
-    const r2 = useReveal(320);
-    const r3 = useReveal(420);
+    const r2 = useReveal(180);
+    const r3 = useReveal(340);
+    const r4 = useReveal(480);
 
     return (
         <section
@@ -68,11 +66,10 @@ export const Hero = () => {
             data-testid="hero-section"
             className="relative pt-24 md:pt-28 pb-12 md:pb-16 overflow-hidden"
         >
-            {/* Subtle dotted grid background */}
             <div className="absolute inset-0 bg-dot-grid opacity-60 pointer-events-none" />
 
             <div className="relative max-w-[1280px] mx-auto px-6 md:px-10 text-center">
-                {/* Massive headline */}
+                {/* Headline — full 2-line unit */}
                 <h1
                     ref={r1}
                     className="reveal font-display tracking-[-0.035em] text-[#0B1120]"
@@ -83,19 +80,20 @@ export const Hero = () => {
                     }}
                 >
                     A helping hand
+                    <br />
+                    behind every post.
                 </h1>
 
-                {/* Decorative icons row with arrow annotation overlay */}
+                {/* Icons cluster + arrow annotation — BELOW headline */}
                 <div
-                    ref={r1b}
-                    className="reveal relative my-3 md:my-4 flex items-center justify-center"
+                    ref={r2}
+                    className="reveal mt-10 md:mt-14 flex items-end justify-center flex-wrap gap-2"
                 >
-                    <KamiBantuOverlay />
                     <div className="flex items-center -space-x-2 md:-space-x-3">
                         {INLINE_PLATFORMS.map((slug, i) => (
                             <span
                                 key={slug}
-                                className="grid place-items-center w-10 h-10 md:w-14 md:h-14 bg-white rounded-xl md:rounded-2xl border border-[#0B1120]/10 shadow-[0_8px_20px_-8px_rgba(11,17,32,0.18)] ring-1 ring-white"
+                                className="grid place-items-center w-11 h-11 md:w-16 md:h-16 bg-white rounded-xl md:rounded-2xl border border-[#0B1120]/10 shadow-[0_8px_20px_-8px_rgba(11,17,32,0.18)] ring-1 ring-white"
                                 style={{
                                     zIndex: 10 - i,
                                     transform: `rotate(${(i % 2 === 0 ? -1 : 1) * 3}deg)`,
@@ -104,30 +102,19 @@ export const Hero = () => {
                                 <img
                                     src={`https://cdn.simpleicons.org/${slug}/0B1120`}
                                     alt=""
-                                    className="w-5 h-5 md:w-7 md:h-7"
+                                    className="w-5 h-5 md:w-8 md:h-8"
                                     loading="lazy"
                                 />
                             </span>
                         ))}
                     </div>
+                    <KamiBantuAnnotation />
                 </div>
-
-                <h1
-                    ref={r1c}
-                    className="reveal font-display tracking-[-0.035em] text-[#0B1120]"
-                    style={{
-                        fontSize: "clamp(2.4rem, 8.5vw, 7rem)",
-                        lineHeight: 1.02,
-                        fontWeight: 400,
-                    }}
-                >
-                    behind every post.
-                </h1>
 
                 {/* Sub copy */}
                 <p
-                    ref={r2}
-                    className="reveal mt-8 md:mt-10 max-w-[640px] mx-auto text-base md:text-lg text-[#1D1D1F]/70 leading-relaxed"
+                    ref={r3}
+                    className="reveal mt-10 md:mt-12 max-w-[640px] mx-auto text-base md:text-lg text-[#1D1D1F]/70 leading-relaxed"
                 >
                     Kontengrafi adalah studio yang{" "}
                     <span className="text-[#0B1120] font-medium underline decoration-[#2A4FE0]/50 decoration-2 underline-offset-4">
@@ -139,8 +126,8 @@ export const Hero = () => {
 
                 {/* CTAs */}
                 <div
-                    ref={r3}
-                    className="reveal mt-7 flex flex-wrap items-center justify-center gap-4"
+                    ref={r4}
+                    className="reveal mt-8 flex flex-wrap items-center justify-center gap-4"
                 >
                     <a
                         data-testid="hero-cta-primary"

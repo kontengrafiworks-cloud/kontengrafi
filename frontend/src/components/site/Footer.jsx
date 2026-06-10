@@ -35,11 +35,6 @@ export const Footer = () => {
                                     Proses
                                 </a>
                             </li>
-                            <li>
-                                <a href="#plans" className="hover:text-[#0B1120]">
-                                    Plan
-                                </a>
-                            </li>
                         </ul>
                     </div>
                     <div>
