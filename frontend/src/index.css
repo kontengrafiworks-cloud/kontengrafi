@@ -1,6 +1,5 @@
-@import url("https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,500,700,400,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500;1,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap");
 
 @tailwind base;
@@ -13,31 +12,31 @@ html {
 
 body {
     margin: 0;
-    font-family: "IBM Plex Mono", "Manrope", -apple-system, BlinkMacSystemFont,
+    font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI",
         sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #ffffff;
-    color: #0a1a4a;
+    background-color: #f4eedf;
+    color: #14183a;
+    font-feature-settings: "ss01", "cv11";
 }
 
 .font-display {
-    font-family: "Cabinet Grotesk", "Manrope", sans-serif;
-    font-feature-settings: "ss01";
+    font-family: "Manrope", sans-serif;
+    letter-spacing: -0.02em;
 }
 .font-serif-italic {
-    font-family: "Cormorant Garamond", "Playfair Display", serif;
+    font-family: "Instrument Serif", serif;
     font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.01em;
 }
 .font-mono {
     font-family: "IBM Plex Mono", monospace;
 }
-.font-sans {
-    font-family: "Manrope", sans-serif;
-}
 
 ::selection {
-    background-color: #0047ff;
+    background-color: #2a4fe0;
     color: #ffffff;
 }
 
@@ -51,27 +50,30 @@ body {
     }
 }
 .animate-marquee {
-    animation: marquee 30s linear infinite;
+    animation: marquee 40s linear infinite;
+}
+.animate-marquee-fast {
+    animation: marquee 22s linear infinite;
 }
 
-/* Vertical marquee for hero */
-@keyframes marquee-y {
+/* Slow spin (pinwheel) */
+@keyframes spin-slow {
     from {
-        transform: translateY(0);
+        transform: rotate(0deg);
     }
     to {
-        transform: translateY(-50%);
+        transform: rotate(360deg);
     }
 }
-.animate-marquee-y {
-    animation: marquee-y 25s linear infinite;
+.animate-spin-slow {
+    animation: spin-slow 28s linear infinite;
 }
 
 /* Fade in up */
 @keyframes fade-up {
     from {
         opacity: 0;
-        transform: translateY(24px);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
@@ -85,23 +87,43 @@ body {
     animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-/* Grain / noise overlay */
-.noise::before {
+/* Subtle paper / noise texture */
+.paper {
+    background-color: #f4eedf;
+    background-image:
+        radial-gradient(
+            circle at 20% 10%,
+            rgba(42, 79, 224, 0.05),
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at 80% 90%,
+            rgba(42, 79, 224, 0.04),
+            transparent 40%
+        );
+}
+
+.noise-overlay::before {
     content: "";
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.06;
-    mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.6'/></svg>");
+    opacity: 0.07;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.7'/></svg>");
 }
 
-/* Subtle grid background */
-.bg-grid {
-    background-image:
-        linear-gradient(to right, rgba(10, 26, 74, 0.06) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(10, 26, 74, 0.06) 1px, transparent 1px);
-    background-size: 64px 64px;
+/* Dotted divider */
+.dotted-line {
+    background-image: linear-gradient(
+        to right,
+        rgba(20, 24, 58, 0.25) 50%,
+        transparent 50%
+    );
+    background-size: 8px 1px;
+    background-repeat: repeat-x;
+    background-position: center;
+    height: 1px;
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -114,26 +136,26 @@ body {
 
 @layer base {
     :root {
-        --background: 0 0% 100%;
-        --foreground: 222 76% 16%;
+        --background: 42 50% 92%;
+        --foreground: 232 47% 16%;
         --card: 0 0% 100%;
-        --card-foreground: 222 76% 16%;
+        --card-foreground: 232 47% 16%;
         --popover: 0 0% 100%;
-        --popover-foreground: 222 76% 16%;
-        --primary: 224 100% 50%;
+        --popover-foreground: 232 47% 16%;
+        --primary: 228 75% 52%;
         --primary-foreground: 0 0% 100%;
-        --secondary: 210 40% 96.1%;
-        --secondary-foreground: 222 76% 16%;
-        --muted: 210 40% 96.1%;
-        --muted-foreground: 215 16% 47%;
-        --accent: 210 40% 96.1%;
-        --accent-foreground: 222 76% 16%;
+        --secondary: 42 40% 88%;
+        --secondary-foreground: 232 47% 16%;
+        --muted: 42 30% 88%;
+        --muted-foreground: 232 12% 40%;
+        --accent: 42 40% 88%;
+        --accent-foreground: 232 47% 16%;
         --destructive: 0 84.2% 60.2%;
         --destructive-foreground: 0 0% 98%;
-        --border: 214 32% 91%;
-        --input: 214 32% 91%;
-        --ring: 224 100% 50%;
-        --radius: 0.5rem;
+        --border: 232 20% 86%;
+        --input: 232 20% 86%;
+        --ring: 228 75% 52%;
+        --radius: 1rem;
     }
 }
 

@@ -1,35 +1,122 @@
 import { CONTACT } from "@/lib/contacts";
+import { BRAND, Pinwheel } from "@/lib/brand";
 
 export const Footer = () => {
     return (
         <footer
             data-testid="site-footer"
-            className="bg-[#0A1A4A] text-white border-t border-white/10"
+            className="bg-[#14183A] text-white relative overflow-hidden"
         >
-            <div className="max-w-[1500px] mx-auto px-6 md:px-10 lg:px-14 py-10 grid grid-cols-12 gap-6 items-center">
-                <div className="col-span-12 md:col-span-4 flex items-center gap-2 font-display font-black text-lg uppercase tracking-tight">
-                    <span className="w-2 h-2 rounded-full bg-[#3D7BFF]" />
-                    {CONTACT.brand}
-                    <span className="text-[#3D7BFF]">®</span>
-                </div>
-                <div className="col-span-12 md:col-span-4 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white/50">
-                    © {new Date().getFullYear()} — Next Generation Content
-                </div>
-                <div className="col-span-12 md:col-span-4 flex items-center md:justify-end gap-6 font-mono text-[11px] uppercase tracking-[0.15em]">
-                    <a
-                        href={CONTACT.instagram}
-                        className="text-white/70 hover:text-white transition-colors"
-                        data-testid="footer-instagram"
+            <div className="max-w-[1240px] mx-auto px-6 md:px-10 pt-16 pb-10">
+                {/* Massive wordmark */}
+                <div className="flex items-center gap-4 mb-12">
+                    <span className="w-12 h-12 rounded-full bg-white/10 grid place-items-center text-white">
+                        <Pinwheel className="w-7 h-7 animate-spin-slow" />
+                    </span>
+                    <div
+                        className="font-display font-bold tracking-[-0.04em]"
+                        style={{ fontSize: "clamp(2.5rem, 8vw, 6rem)", lineHeight: 1 }}
                     >
-                        Instagram
-                    </a>
-                    <a
-                        href={CONTACT.tiktok}
-                        className="text-white/70 hover:text-white transition-colors"
-                        data-testid="footer-tiktok"
-                    >
-                        TikTok
-                    </a>
+                        {BRAND.name}
+                        <span className="text-[#7E94FF]">.</span>
+                    </div>
+                </div>
+
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+                    <div>
+                        <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/40 mb-4">
+                            Studio
+                        </div>
+                        <ul className="space-y-2.5 text-sm text-white/80">
+                            <li>
+                                <a href="#beside" className="hover:text-white">
+                                    Cara Kerja
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#cards" className="hover:text-white">
+                                    Layanan
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#process" className="hover:text-white">
+                                    Proses
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#plans" className="hover:text-white">
+                                    Plan
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/40 mb-4">
+                            Bantuan
+                        </div>
+                        <ul className="space-y-2.5 text-sm text-white/80">
+                            <li>
+                                <a href="#faq" className="hover:text-white">
+                                    FAQ
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href={`mailto:${CONTACT.email}`}
+                                    className="hover:text-white"
+                                    data-testid="footer-email"
+                                >
+                                    {CONTACT.email}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/40 mb-4">
+                            Sosial
+                        </div>
+                        <ul className="space-y-2.5 text-sm text-white/80">
+                            <li>
+                                <a
+                                    href={CONTACT.instagram}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:text-white"
+                                    data-testid="footer-instagram"
+                                >
+                                    Instagram
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href={CONTACT.tiktok}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:text-white"
+                                    data-testid="footer-tiktok"
+                                >
+                                    TikTok
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/40 mb-4">
+                            Lokasi
+                        </div>
+                        <div className="text-sm text-white/80">
+                            Jakarta — Bandung
+                            <br />
+                            Indonesia
+                        </div>
+                    </div>
+                </div>
+
+                <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 font-mono text-[10px] uppercase tracking-[0.2em] text-white/40">
+                    <span>
+                        © {new Date().getFullYear()} {BRAND.name} {BRAND.suffix}
+                    </span>
+                    <span>{BRAND.tagline}</span>
                 </div>
             </div>
         </footer>

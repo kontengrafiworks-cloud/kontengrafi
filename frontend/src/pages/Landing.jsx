@@ -1,24 +1,29 @@
 import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
-import { Marquee } from "@/components/site/Marquee";
-import { About } from "@/components/site/About";
-import { Services } from "@/components/site/Services";
-import { Portfolio } from "@/components/site/Portfolio";
+import { BesideYou } from "@/components/site/BesideYou";
+import { PermissionCards } from "@/components/site/PermissionCards";
+import { Process } from "@/components/site/Process";
 import { Testimonials } from "@/components/site/Testimonials";
-import { Contact } from "@/components/site/Contact";
+import { Plans } from "@/components/site/Plans";
+import { Faq } from "@/components/site/Faq";
+import { FinalCta } from "@/components/site/FinalCta";
 import { Footer } from "@/components/site/Footer";
 
 export default function Landing() {
     return (
-        <main data-testid="landing-page" className="bg-white text-slate-900">
+        <main
+            data-testid="landing-page"
+            className="paper text-[#14183A] min-h-screen"
+        >
             <Navbar />
             <Hero />
-            <Marquee />
-            <About />
-            <Services />
-            <Portfolio />
+            <BesideYou />
+            <PermissionCards />
+            <Process />
             <Testimonials />
-            <Contact />
+            <Plans />
+            <Faq />
+            <FinalCta />
             <Footer />
         </main>
     );
