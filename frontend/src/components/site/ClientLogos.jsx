@@ -7,7 +7,7 @@ const CLIENTS = [
     },
     {
         name: "iMFG",
-        logo: "https://customer-assets.emergentagent.com/job_kontengrafi-landing/artifacts/99lx5puj_4997e50b-5965-4d46-8cde-4b14a49b07e5.png",
+        logo: "https://customer-assets.emergentagent.com/job_kontengrafi-landing/artifacts/zd1b2234_image.png",
     },
     {
         name: "GKB Green Lake City",
