@@ -128,11 +128,17 @@ export const Portfolio = () => {
 };
 
 const Card = ({ item, onOpen }) => {
+    const isVideo = item.type === "video";
+    // Photos = 4:5, Videos = 9:16 (vertical reels)
+    const ratio = isVideo ? "aspect-[9/16]" : "aspect-[4/5]";
+    const width = isVideo
+        ? "w-48 md:w-56 lg:w-64"
+        : "w-60 md:w-72 lg:w-80";
     return (
         <button
             data-testid={`portfolio-item-${item.id}`}
             onClick={onOpen}
-            className="group relative shrink-0 snap-start overflow-hidden rounded-xl bg-[#0B1120]/5 w-60 md:w-72 lg:w-80 aspect-[4/5] focus:outline-none focus:ring-2 focus:ring-[#2A4FE0] focus:ring-offset-2 focus:ring-offset-[#F4F6FA]"
+            className={`group relative shrink-0 snap-start overflow-hidden rounded-xl bg-[#0B1120]/5 ${width} ${ratio} focus:outline-none focus:ring-2 focus:ring-[#2A4FE0] focus:ring-offset-2 focus:ring-offset-[#F4F6FA]`}
         >
             <img
                 src={item.thumb}
@@ -167,11 +173,14 @@ const Card = ({ item, onOpen }) => {
 
 const Lightbox = ({ item, onClose }) => {
     const open = Boolean(item);
+    const isVerticalVideo = item?.type === "video" && !item?.embed;
     return (
         <Dialog open={open} onOpenChange={(v) => !v && onClose()}>
             <DialogContent
                 data-testid="portfolio-lightbox"
-                className="max-w-5xl bg-[#0B1120] border-0 p-0 overflow-hidden text-white"
+                className={`${
+                    isVerticalVideo ? "max-w-md" : "max-w-5xl"
+                } bg-[#0B1120] border-0 p-0 overflow-hidden text-white`}
             >
                 <button
                     data-testid="lightbox-close"
@@ -184,7 +193,7 @@ const Lightbox = ({ item, onClose }) => {
 
                 {item && (
                     <div className="flex flex-col">
-                        <div className="bg-black aspect-video flex items-center justify-center">
+                        <div className="bg-black flex items-center justify-center">
                             {item.type === "photo" ? (
                                 <img
                                     src={item.full}
@@ -195,7 +204,7 @@ const Lightbox = ({ item, onClose }) => {
                                 <iframe
                                     src={item.full}
                                     title={item.title}
-                                    className="w-full h-full"
+                                    className="w-full aspect-video"
                                     allow="autoplay; encrypted-media; picture-in-picture"
                                     allowFullScreen
                                 />
@@ -206,8 +215,8 @@ const Lightbox = ({ item, onClose }) => {
                                     controls
                                     autoPlay
                                     playsInline
-                                    preload="none"
-                                    className="w-full h-full max-h-[80vh] object-contain"
+                                    preload="metadata"
+                                    className="max-h-[80vh] max-w-full object-contain"
                                 />
                             )}
                         </div>

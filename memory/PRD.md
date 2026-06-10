@@ -39,18 +39,25 @@ Later iterations:
 - 3 alternating PermissionCards (Brand Voice Sync, Shoot Day Access, Approval Flow)
 - 3-step Process section on dark navy
 - Testimonials marquee (8 quotes) + 3 detailed cards
-- 3 pricing plans with Grow highlighted ("Paling Populer")
 - 8-item FAQ accordion
-- Big blue FinalCta + Ask AI links (ChatGPT/Claude/Perplexity with pre-filled prompt)
-- Animated pinwheel decorations in hero/footer/CTA
-- 100% testing agent pass (77/77 assertions)
+- Big blue FinalCta + Ask ChatGPT link (direct to chat.openai.com)
+- Real contacts: WhatsApp +62 819-9555-5169, IG kontengrafi.works
+- Portfolio horizontal slider (3 filters: Photo & Design / UGC / Commercial) with snap-scroll & lightbox
+
+## What's Implemented (2026-06-10 — v4: Cloudinary Real Assets)
+- Cloud: `dbgwganez` integrated as production CDN
+- 14 real client PHOTOS (4:5 portrait): Lavish bag, KM jewelry, iMFG charger, freepik designs, examples
+- 8 UGC vertical videos (9:16): iMFG, Ecloria, Lavish, Fashion, Kafamilk, daily lifestyle reels
+- 8 Commercial vertical videos (9:16): Dentyn, iMFG proposal, Ecloria, F&B reels, Kafamilk campaign
+- Auto thumbnail extraction from video frame 0 (`so_0`) + auto format/quality (`f_auto,q_auto`)
+- Video poster + lazy load + `preload="metadata"` for fast initial render
+- Portfolio Card now uses dynamic aspect ratio (photo = 4:5, video = 9:16)
+- Lightbox dialog narrows automatically for vertical videos (max-w-md) vs landscape (max-w-5xl)
 
 ## Prioritized Backlog
 ### P1
-- Replace placeholder Pexels images with real client portfolio when available
-- Update WhatsApp number, IG/TikTok handles, email in `src/lib/contacts.js`
+- Replace placeholder Pexels images in `PermissionCards.jsx` and `BesideYou.jsx` with real Cloudinary works
 - Add favicon (use pinwheel) + OG image + SEO meta
-- Add real fashion/F&B portfolio gallery section (optional photo+video tabs)
 
 ### P2
 - Lead-capture form (free brief audit) with Resend email integration
