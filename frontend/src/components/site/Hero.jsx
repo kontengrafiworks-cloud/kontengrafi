@@ -72,8 +72,8 @@ export const Hero = () => {
                     ref={r1}
                     className="reveal font-display tracking-[-0.03em] text-[#0B1120]"
                     style={{
-                        fontSize: "clamp(2rem, 5.5vw, 4.4rem)",
-                        lineHeight: 1.05,
+                        fontSize: "clamp(2.6rem, 7vw, 5.6rem)",
+                        lineHeight: 1.04,
                         fontWeight: 700,
                         textWrap: "balance",
                     }}

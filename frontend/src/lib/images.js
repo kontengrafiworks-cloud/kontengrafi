@@ -26,3 +26,26 @@ export const PORTRAIT_AVATARS = {
     female_1: "https://images.pexels.com/photos/12931653/pexels-photo-12931653.jpeg",
     male_2: "https://images.pexels.com/photos/2235071/pexels-photo-2235071.jpeg",
 };
+
+// Real Kontengrafi work — hosted on Cloudinary (cloud: dbgwganez)
+// 4:5 portrait, auto-optimized for web display.
+const CLOUDINARY = "https://res.cloudinary.com/dbgwganez/image/upload";
+const kontengrafi = (id, size = "w_800,h_1000,c_fill,q_auto,f_auto") =>
+    `${CLOUDINARY}/${size}/${id}`;
+
+export const KONTENGRAFI_PHOTOS = {
+    bag_editorial: kontengrafi("bag_creation_27_ff2j2n"),
+    bag_hero: kontengrafi("bag_creation_1_c96zxl"),
+    jewelry_1: kontengrafi("KM-p_14_zn7kkd"),
+    jewelry_2: kontengrafi("KM-p_13_mdkzkb"),
+    jewelry_3: kontengrafi("KM-p_4_oqjiho"),
+    lookbook_22: kontengrafi("example_22_xg38qi"),
+    lookbook_18: kontengrafi("example_18_epfgnx"),
+    editorial_3: kontengrafi("example_3_potb43"),
+    editorial_6: kontengrafi("example_6_avjnjk"),
+    editorial_1k: kontengrafi("example_1_gj4pdb"),
+    design_1: kontengrafi("freepik_2754978502_vzjiso"),
+    design_2: kontengrafi("freepik_2754934832_ayjurs"),
+    studio_18: kontengrafi("18_u00i3x"),
+    studio_1: kontengrafi("1_hzsy1u"),
+};

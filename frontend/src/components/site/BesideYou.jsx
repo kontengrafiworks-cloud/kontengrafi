@@ -1,5 +1,5 @@
 import { useReveal } from "@/lib/reveal";
-import { FASHION_IMAGES, FNB_IMAGES } from "@/lib/images";
+import { KONTENGRAFI_PHOTOS } from "@/lib/images";
 
 const ANNOTATIONS = [
     {
@@ -74,12 +74,12 @@ export const BesideYou = () => {
                                 </div>
                                 <div className="grid grid-cols-3 gap-0.5 p-0.5">
                                     {[
-                                        FASHION_IMAGES.editorial_1,
-                                        FNB_IMAGES.coffee_pour,
-                                        FASHION_IMAGES.streetwear,
-                                        FNB_IMAGES.plated_food,
-                                        FASHION_IMAGES.editorial_2,
-                                        FNB_IMAGES.cocktail,
+                                        KONTENGRAFI_PHOTOS.bag_editorial,
+                                        KONTENGRAFI_PHOTOS.jewelry_1,
+                                        KONTENGRAFI_PHOTOS.lookbook_22,
+                                        KONTENGRAFI_PHOTOS.bag_hero,
+                                        KONTENGRAFI_PHOTOS.editorial_3,
+                                        KONTENGRAFI_PHOTOS.jewelry_3,
                                     ].map((src, i) => (
                                         <img
                                             key={i}

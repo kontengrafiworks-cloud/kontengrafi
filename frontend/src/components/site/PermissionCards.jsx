@@ -1,5 +1,5 @@
 import { Mic, Camera, FileCheck } from "lucide-react";
-import { FASHION_IMAGES, FNB_IMAGES } from "@/lib/images";
+import { KONTENGRAFI_PHOTOS } from "@/lib/images";
 
 const CARDS = [
     {
@@ -7,7 +7,7 @@ const CARDS = [
         permission: "Brand Voice",
         status: "Allowed for Kontengrafi",
         icon: Mic,
-        sketch: FASHION_IMAGES.fabric_detail,
+        sketch: KONTENGRAFI_PHOTOS.lookbook_18,
         title: "Brief sekali, kami simpan untuk seterusnya.",
         body: "Brief, tone, dan referensi visual brand Anda kami simpan. Order konten berikutnya cukup satu kalimat — kami sudah tahu gaya yang harus diproduksi.",
     },
@@ -16,7 +16,7 @@ const CARDS = [
         permission: "AI Shoot Access",
         status: "Allowed for Kontengrafi",
         icon: Camera,
-        sketch: FNB_IMAGES.plated_food,
+        sketch: KONTENGRAFI_PHOTOS.jewelry_2,
         title: "Tim datang dengan semua yang dibutuhkan.",
         body: "Kamera, lighting, stylist, dan property — kami bawa lengkap. Satu hari AI shoot menghasilkan stok konten dua minggu, UGC maupun commercial.",
     },
@@ -25,7 +25,7 @@ const CARDS = [
         permission: "Final Delivery",
         status: "Allowed for Kontengrafi",
         icon: FileCheck,
-        sketch: FASHION_IMAGES.streetwear,
+        sketch: KONTENGRAFI_PHOTOS.editorial_6,
         title: "File final siap pakai, langsung upload.",
         body: "Semua foto & video diserahkan di Notion / Drive dalam rasio yang sesuai per platform — feed, story, reel, e-commerce. Anda tinggal pilih dan upload.",
     },
@@ -73,7 +73,7 @@ const PermissionCard = ({
                                 src={sketch}
                                 alt=""
                                 loading="lazy"
-                                className="w-full aspect-[5/4] object-cover grayscale opacity-90"
+                                className="w-full aspect-[5/4] object-cover"
                             />
                             <div className="absolute top-4 left-4 right-4 md:right-auto bg-white border border-[#0B1120]/10 rounded-2xl shadow-md p-2 flex items-center gap-3">
                                 <span className="w-9 h-9 rounded-xl bg-[#0B1120] grid place-items-center text-white">

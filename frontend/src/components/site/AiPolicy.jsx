@@ -132,7 +132,7 @@ export const AiPolicy = () => {
                 <div
                     ref={scrollRef}
                     data-testid="ai-policy-track"
-                    className="flex gap-4 md:gap-5 overflow-x-auto snap-x snap-mandatory pb-3 no-scrollbar -mx-6 md:-mx-10 px-6 md:px-10"
+                    className="flex gap-4 md:gap-5 overflow-x-auto snap-x snap-mandatory pb-3 no-scrollbar"
                     style={{
                         scrollBehavior: "smooth",
                         WebkitOverflowScrolling: "touch",
