@@ -6,13 +6,13 @@ const STEPS = [
         n: "01",
         icon: Sparkles,
         title: "Brief & Konsep",
-        body: "Diskusi 30 menit untuk memahami brand, audiens, dan goal konten. Kami susun shotlist & moodboard.",
+        body: "Diskusi 30 menit untuk memahami brand, audiens, dan goal konten. Kami susun shotlist & brief produksi.",
     },
     {
         n: "02",
         icon: Camera,
-        title: "Shoot & Produksi",
-        body: "Tim kami eksekusi shoot dengan kamera, lighting, dan stylist. Semua di-set sesuai shotlist.",
+        title: "AI Shoot & Produksi",
+        body: "Tim kami eksekusi AI shoot dengan kamera, lighting, dan stylist. Semua di-set sesuai shotlist.",
     },
     {
         n: "03",

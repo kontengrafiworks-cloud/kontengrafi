@@ -10,7 +10,7 @@ const PLANS = [
         price: "Rp 4 jt",
         period: "/ paket",
         features: [
-            "1 hari shoot (4 jam)",
+            "1 hari AI shoot (4 jam)",
             "12 foto UGC siap pakai",
             "2 reel pendek",
             "Multi-rasio per platform",
@@ -24,10 +24,10 @@ const PLANS = [
         price: "Rp 9 jt",
         period: "/ bulan",
         features: [
-            "2 hari shoot per bulan",
+            "2 hari AI shoot per bulan",
             "30 foto UGC + commercial",
             "6 reel & motion content",
-            "Brand voice + moodboard custom",
+            "Brand voice + brief custom",
             "File final multi-rasio + revisi",
         ],
         cta: "Pilih Grow",
@@ -40,7 +40,7 @@ const PLANS = [
         price: "Custom",
         period: "",
         features: [
-            "Tim produksi dedicated",
+            "Tim AI produksi dedicated",
             "Brand film + campaign",
             "Volume konten besar",
             "Strategy session bulanan",
@@ -73,8 +73,8 @@ export const Plans = () => {
                         Paket produksi konten yang fleksibel.
                     </h2>
                     <p className="mt-4 text-base md:text-lg text-[#1D1D1F]/65 max-w-[600px] mx-auto">
-                        Semua paket sudah termasuk shoot, edit, dan delivery file
-                        siap pakai. Tanpa biaya tersembunyi.
+                        Semua paket sudah termasuk AI shoot, edit, dan delivery
+                        file siap pakai. Tanpa biaya tersembunyi.
                     </p>
                 </div>
 

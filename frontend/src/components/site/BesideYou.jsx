@@ -5,7 +5,7 @@ const ANNOTATIONS = [
     {
         pos: "top-[6%] left-[2%]",
         label: "brief sederhana",
-        desc: "cukup kirim moodboard",
+        desc: "cukup kirim brief",
         underline: false,
     },
     {
@@ -17,7 +17,7 @@ const ANNOTATIONS = [
     {
         pos: "bottom-[6%] left-[2%]",
         label: "brand voice",
-        desc: "konsisten setiap shoot",
+        desc: "konsisten setiap AI shoot",
         underline: false,
     },
     {
@@ -53,9 +53,9 @@ export const BesideYou = () => {
                         <p className="mt-4 text-base text-[#1D1D1F]/65 leading-relaxed max-w-sm">
                             Kontengrafi mengerjakan{" "}
                             <span className="underline decoration-[#2A4FE0]/40 decoration-2 underline-offset-2">
-                                produksi konten
+                                AI produksi konten
                             </span>{" "}
-                            — dari brief, shoot, sampai file siap upload —
+                            — dari brief, AI shoot, sampai file siap upload —
                             sehingga Anda fokus mengelola brand, bukan
                             mengelola produksi.
                         </p>

@@ -17,27 +17,27 @@ const ITEMS = [
     },
     {
         q: "Apakah Kontengrafi juga posting kontennya?",
-        a: "Tidak. Kami fokus di produksi — shoot, edit, dan delivery file siap pakai. Anda atau tim social media Anda yang melakukan posting sesuai strategi brand. Ini membuat brand voice tetap konsisten dan kontrol penuh ada di tangan Anda.",
+        a: "Tidak. Kami fokus di produksi — AI shoot, edit, dan delivery file siap pakai. Anda atau tim social media Anda yang melakukan posting sesuai strategi brand. Ini membuat brand voice tetap konsisten dan kontrol penuh ada di tangan Anda.",
     },
     {
         q: "Berapa lama dari brief sampai file siap?",
-        a: "Standar kami 5–7 hari kerja dari shoot day sampai file final. Untuk paket Grow ke atas, produksi mingguan disiapkan sebulan di depan supaya stok konten Anda tidak pernah kosong.",
+        a: "Standar hari kerja tergantung brief klien — biasanya untuk 10 video memerlukan 2–4 hari kerja. Brief yang lebih kompleks atau volume lebih besar akan kami estimasi di awal sesi konsultasi.",
     },
     {
         q: "Apakah saya yang menyediakan konsep atau Kontengrafi?",
-        a: "Keduanya bisa. Kalau Anda sudah punya moodboard, kami eksekusi. Kalau belum, sesi brief 30 menit di awal akan menghasilkan shotlist, kalender produksi, dan referensi visual — siap dieksekusi tim kami.",
+        a: "Keduanya bisa. Kalau Anda sudah punya brief, kami eksekusi. Kalau belum, sesi diskusi 30 menit di awal akan menghasilkan shotlist, kalender produksi, dan referensi visual — siap dieksekusi tim kami.",
     },
     {
         q: "Bagaimana proses approval kontennya?",
-        a: "Semua draft konten disiapkan di folder Notion / Google Drive. Anda review, kasih komen, atau approve. Setelah disetujui, file final diserahkan dalam rasio yang sesuai per platform. Revisi minor termasuk dalam paket.",
+        a: "Semua approval konten dikirimkan melalui Google Drive. Anda review, kasih komen, atau approve langsung di sana. Maksimal revisi minor 2× per konten sudah termasuk dalam paket.",
     },
     {
         q: "Apakah saya bisa pakai foto/video-nya untuk iklan berbayar?",
         a: "Bisa. Hak komersial penuh atas semua aset jadi milik Anda — untuk pemakaian organik dan ads di semua platform, selamanya.",
     },
     {
-        q: "Apakah ada kontrak minimum?",
-        a: "Paket Starter sekali bayar tanpa kontrak. Paket Grow minimum 3 bulan untuk konsistensi produksi. Paket Studio dibuat custom sesuai kebutuhan brand.",
+        q: "Bagaimana sistem harganya?",
+        a: "Kontengrafi sistemnya per jumlah konten — fleksibel sesuai kebutuhan brand Anda. Setiap 10 konten otomatis dapat diskon 10%, baik foto maupun video. Semakin besar volume, semakin hemat.",
     },
 ];
 

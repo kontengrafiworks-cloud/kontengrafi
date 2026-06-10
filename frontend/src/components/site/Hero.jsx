@@ -115,11 +115,11 @@ export const Hero = () => {
                     ref={r3}
                     className="reveal mt-6 md:mt-8 max-w-[560px] mx-auto text-base md:text-lg text-[#1D1D1F]/70 leading-relaxed"
                 >
-                    Studio produksi foto & video — UGC dan{" "}
+                    The next generation of{" "}
                     <span className="text-[#0B1120] font-medium underline decoration-[#2A4FE0]/50 decoration-2 underline-offset-4">
-                        commercial content
-                    </span>{" "}
-                    untuk brand mana pun.
+                        content creation
+                    </span>
+                    .
                 </p>
 
                 {/* CTAs */}
