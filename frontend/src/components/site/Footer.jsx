@@ -4,28 +4,28 @@ export const Footer = () => {
     return (
         <footer
             data-testid="site-footer"
-            className="bg-white border-t border-slate-200"
+            className="bg-[#0A1A4A] text-white border-t border-white/10"
         >
-            <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 py-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-                <div className="flex items-center gap-2 font-display font-black text-xl tracking-tight text-slate-900">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#0047FF]" />
+            <div className="max-w-[1500px] mx-auto px-6 md:px-10 lg:px-14 py-10 grid grid-cols-12 gap-6 items-center">
+                <div className="col-span-12 md:col-span-4 flex items-center gap-2 font-display font-black text-lg uppercase tracking-tight">
+                    <span className="w-2 h-2 rounded-full bg-[#3D7BFF]" />
                     {CONTACT.brand}
+                    <span className="text-[#3D7BFF]">®</span>
                 </div>
-                <div className="text-sm text-slate-500">
-                    © {new Date().getFullYear()} {CONTACT.brand}. Next generation
-                    content studio.
+                <div className="col-span-12 md:col-span-4 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white/50">
+                    © {new Date().getFullYear()} — Next Generation Content
                 </div>
-                <div className="flex items-center gap-6 text-sm font-semibold text-slate-700">
+                <div className="col-span-12 md:col-span-4 flex items-center md:justify-end gap-6 font-mono text-[11px] uppercase tracking-[0.15em]">
                     <a
                         href={CONTACT.instagram}
-                        className="hover:text-[#0047FF] transition-colors"
+                        className="text-white/70 hover:text-white transition-colors"
                         data-testid="footer-instagram"
                     >
                         Instagram
                     </a>
                     <a
                         href={CONTACT.tiktok}
-                        className="hover:text-[#0047FF] transition-colors"
+                        className="text-white/70 hover:text-white transition-colors"
                         data-testid="footer-tiktok"
                     >
                         TikTok
