@@ -3,6 +3,7 @@ import { Hero } from "@/components/site/Hero";
 import { BesideYou } from "@/components/site/BesideYou";
 import { Process } from "@/components/site/Process";
 import { Portfolio } from "@/components/site/Portfolio";
+import { ClientLogos } from "@/components/site/ClientLogos";
 import { Testimonials } from "@/components/site/Testimonials";
 import { Faq } from "@/components/site/Faq";
 import { AiPolicy } from "@/components/site/AiPolicy";
@@ -20,6 +21,7 @@ export default function Landing() {
             <BesideYou />
             <Process />
             <Portfolio />
+            <ClientLogos />
             <Testimonials />
             <Faq />
             <AiPolicy />
