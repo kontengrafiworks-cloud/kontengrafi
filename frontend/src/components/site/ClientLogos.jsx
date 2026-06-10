@@ -14,10 +14,6 @@ const CLIENTS = [
         logo: "https://customer-assets.emergentagent.com/job_kontengrafi-landing/artifacts/bb5xnpwo_image.png",
     },
     {
-        name: "Écloria Luxury Jewelry",
-        logo: "https://customer-assets.emergentagent.com/job_kontengrafi-landing/artifacts/zd1b2234_image.png",
-    },
-    {
         name: "Kafamilk",
         logo: "https://customer-assets.emergentagent.com/job_kontengrafi-landing/artifacts/itjra3zt_image.png",
     },
