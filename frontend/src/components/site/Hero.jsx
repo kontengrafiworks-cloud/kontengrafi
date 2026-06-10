@@ -1,5 +1,5 @@
 import { waLink } from "@/lib/contacts";
-import { BRAND, NudgeArrow, Pinwheel } from "@/lib/brand";
+import { NudgeArrow, Pinwheel } from "@/lib/brand";
 import { useReveal } from "@/lib/reveal";
 
 // Simple platform icon set
@@ -138,12 +138,6 @@ export const Hero = () => {
                     </div>
                 </div>
             </div>
-
-            {/* Load Caveat for handwritten note */}
-            <link
-                href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&display=swap"
-                rel="stylesheet"
-            />
         </section>
     );
 };
