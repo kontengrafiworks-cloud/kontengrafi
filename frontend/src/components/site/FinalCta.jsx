@@ -137,7 +137,7 @@ export const FinalCta = () => {
                             className="inline-flex items-center gap-2 bg-white border border-[#14183A]/10 hover:border-[#14183A]/30 hover:shadow-md text-[#14183A] px-5 py-3 rounded-full text-sm font-semibold transition-all duration-300"
                         >
                             <img
-                                src={`https://cdn.simpleicons.org/${a.slug === "chatgpt" ? "openai" : a.slug}/14183A`}
+                                src={`https://cdn.simpleicons.org/${a.slug === "chatgpt" ? "openai" : a.slug}/14183a`}
                                 alt=""
                                 className="w-4 h-4"
                             />

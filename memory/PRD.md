@@ -3,72 +3,62 @@
 ## Original Problem Statement
 "buatkan saya website landing page yang nantinya ingin saya sediakan section photo & video. Warna websitenya biru putih, dengan konsep minimalis modern. Dengan nama brand: Kontengrafi. Berikan tagline yang bagus untuk website tersebut"
 
-## User Choices (verbatim)
-- Service: pembuatan foto & video UGC dan komersial (jangan sebut AI eksplisit)
-- Sections: Hero + About + Services + Portfolio (Photo & Video) + Testimonials + Contact
-- Portfolio: user akan menyediakan asset sendiri (placeholder dulu)
-- Contact: WhatsApp & social media only (no backend form)
-- Tagline: "Next generation content"
-- Color: blue + white, minimalis modern
+Later iterations:
+- v2: User asked for editorial bold style (Alisa Korsak / Match Point reference), keep blue + white, use fashion + F&B imagery.
+- v3 (current): User asked to rebuild based on **Invoko.ai** design DNA, provided official logo (white pinwheel on blue), set tagline = "A helping hand behind every post".
 
 ## Architecture
-- Frontend-only React SPA (React Router single route `/`)
-- No backend / no database used for this scope
-- Static landing page, Bahasa Indonesia copy
+- React SPA, single route `/` (no backend)
+- Cream paper background (#F4EEDF), white cards, blue accents (#2A4FE0), navy darks (#14183A)
+- Fonts: Manrope (display & body) + Instrument Serif italic (accent) + IBM Plex Mono (labels)
+- Hot-reloaded via supervisor
 
 ## File Structure
 - `src/App.js` — Router shell
 - `src/pages/Landing.jsx` — composes all sections
-- `src/components/site/Navbar.jsx`
-- `src/components/site/Hero.jsx`
-- `src/components/site/Marquee.jsx`
-- `src/components/site/About.jsx`
-- `src/components/site/Services.jsx`
-- `src/components/site/Portfolio.jsx` (shadcn Tabs)
-- `src/components/site/Testimonials.jsx`
-- `src/components/site/Contact.jsx`
+- `src/components/site/Navbar.jsx` — pill nav, sticky+blur on scroll
+- `src/components/site/Hero.jsx` — tagline + platform marquee
+- `src/components/site/BesideYou.jsx` — phone feed mockup with fashion & F&B images
+- `src/components/site/PermissionCards.jsx` — 3 alternating "permission" cards
+- `src/components/site/Process.jsx` — dark navy, 3 numbered steps
+- `src/components/site/Testimonials.jsx` — quote marquee + 3 testimonial cards
+- `src/components/site/Plans.jsx` — Starter / Grow (highlighted) / Studio pricing
+- `src/components/site/Faq.jsx` — 8-item shadcn Accordion
+- `src/components/site/FinalCta.jsx` — big blue panel + Ask AI buttons
 - `src/components/site/Footer.jsx`
-- `src/lib/contacts.js` — single source of WhatsApp / IG / TikTok / email
-- `src/lib/reveal.js` — IntersectionObserver scroll-reveal hook
+- `src/lib/brand.jsx` — Pinwheel SVG mark + brand constants
+- `src/lib/contacts.js` — WhatsApp / IG / TikTok / email
+- `src/lib/images.js` — Pexels fashion & F&B URL list
+- `src/lib/reveal.js` — useReveal hook (IntersectionObserver + 2s fallback)
 
-## User Personas
-- UMKM / DTC brand owners cari produksi foto-video cepat & terjangkau
-- Marketing lead agency butuh konten UGC + komersial sinematik
-- Founder e-commerce butuh product shots konversi tinggi
-
-## Design System
-- Palette: #0047FF cobalt blue, white, slate-900/600/500/200
-- Typography: Cabinet Grotesk (display) + Manrope (body)
-- Archetype: Swiss & High-Contrast — generous whitespace, asymmetric bento grids
-- Micro-interactions: scroll reveal, hover-lift, grayscale→color on images, marquee, animated underlines
-
-## What's Been Implemented (2026-06-10 — v1)
-- Fixed navbar with backdrop-blur on scroll, mobile hamburger
-- Asymmetric hero with massive headline, dual CTAs (WhatsApp + scroll-to-portfolio), 3 stats
-- Animated keyword marquee strip
-- About section with 4-cell value grid
-- Services bento (UGC accent card + 3 regular)
-- Portfolio with Tabs (Photo / Video), grayscale→color hover, play overlay on videos
-- Dark testimonials section with 3 quote cards
-- Massive WhatsApp CTA + Instagram/TikTok/Email contact tiles
-- Footer
-- 100% testing agent pass (37/37 assertions)
+## What's Implemented (2026-06-10 — v3)
+- Invoko-inspired editorial layout: cream paper, mixed serif italic + sans, pill-shape navbar
+- Hero with custom pinwheel logo SVG + tagline "A helping hand behind every post"
+- Platform marquee strip (Instagram, TikTok, YouTube, Pinterest, Shopee, FB, X, WhatsApp, Spotify, LinkedIn)
+- BesideYou phone mockup with 6 sample feed posts (fashion + F&B)
+- 3 alternating PermissionCards (Brand Voice Sync, Shoot Day Access, Approval Flow)
+- 3-step Process section on dark navy
+- Testimonials marquee (8 quotes) + 3 detailed cards
+- 3 pricing plans with Grow highlighted ("Paling Populer")
+- 8-item FAQ accordion
+- Big blue FinalCta + Ask AI links (ChatGPT/Claude/Perplexity with pre-filled prompt)
+- Animated pinwheel decorations in hero/footer/CTA
+- 100% testing agent pass (77/77 assertions)
 
 ## Prioritized Backlog
-### P1 (next iteration)
-- Replace placeholder portfolio with actual client assets (lightbox modal for full view)
-- Add real video playback (mp4/YouTube embed) in Portfolio video tab
-- Replace `wa.me` number / IG / TikTok handles with real ones
-- Add favicon and SEO meta (title, OG image, description)
+### P1
+- Replace placeholder Pexels images with real client portfolio when available
+- Update WhatsApp number, IG/TikTok handles, email in `src/lib/contacts.js`
+- Add favicon (use pinwheel) + OG image + SEO meta
+- Add real fashion/F&B portfolio gallery section (optional photo+video tabs)
 
 ### P2
-- "Process" section (Brief → Konsep → Eksekusi → Delivery)
-- FAQ accordion
-- Brand logos / client wall
-- Animated counter on hero stats
-- Multi-language toggle (ID / EN)
+- Lead-capture form (free brief audit) with Resend email integration
+- Smooth Lenis scroll for premium feel
+- Internationalization (EN / ID toggle)
+- Booking calendar (Cal.com embed)
 
 ### P3
-- Booking flow / calendar integration
-- Pricing tiers section
-- Blog / case study CMS
+- Case study CMS / blog
+- Client logo wall
+- Process video / behind-the-scenes

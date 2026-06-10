@@ -120,7 +120,7 @@ export const Hero = () => {
                                 {[...PLATFORMS, ...PLATFORMS].map((p, i) => (
                                     <img
                                         key={`${p.slug}-${i}`}
-                                        src={`https://cdn.simpleicons.org/${p.slug}/14183A`}
+                                        src={`https://cdn.simpleicons.org/${p.slug}/14183a`}
                                         alt={p.label}
                                         className="h-7 md:h-8 opacity-70 hover:opacity-100 transition-opacity"
                                         loading="lazy"
