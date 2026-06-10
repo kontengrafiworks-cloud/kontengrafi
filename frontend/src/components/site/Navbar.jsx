@@ -7,6 +7,7 @@ const NAV_ITEMS = [
     { label: "Cara Kerja", href: "#beside" },
     { label: "Layanan", href: "#cards" },
     { label: "Proses", href: "#process" },
+    { label: "Karya", href: "#portfolio" },
     { label: "FAQ", href: "#faq" },
 ];
 

@@ -3,6 +3,7 @@ import { Hero } from "@/components/site/Hero";
 import { BesideYou } from "@/components/site/BesideYou";
 import { PermissionCards } from "@/components/site/PermissionCards";
 import { Process } from "@/components/site/Process";
+import { Portfolio } from "@/components/site/Portfolio";
 import { Testimonials } from "@/components/site/Testimonials";
 import { Faq } from "@/components/site/Faq";
 import { FinalCta } from "@/components/site/FinalCta";
@@ -19,6 +20,7 @@ export default function Landing() {
             <BesideYou />
             <PermissionCards />
             <Process />
+            <Portfolio />
             <Testimonials />
             <Faq />
             <FinalCta />
