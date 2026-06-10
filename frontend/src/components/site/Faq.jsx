@@ -48,10 +48,10 @@ export const Faq = () => {
         <section
             id="faq"
             data-testid="faq-section"
-            className="relative py-14 md:py-20"
+            className="relative py-10 md:py-14"
         >
             <div className="max-w-[860px] mx-auto px-6 md:px-10">
-                <div ref={rHead} className="reveal text-center mb-10">
+                <div ref={rHead} className="reveal text-center mb-8">
                     <h2
                         className="font-display tracking-[-0.03em] text-[#0B1120]"
                         style={{

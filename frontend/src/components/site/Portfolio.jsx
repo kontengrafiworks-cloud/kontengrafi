@@ -23,7 +23,7 @@ export const Portfolio = () => {
         <section
             id="portfolio"
             data-testid="portfolio-section"
-            className="relative py-14 md:py-20"
+            className="relative py-10 md:py-14"
         >
             <div className="max-w-[1280px] mx-auto px-6 md:px-10">
                 <div

@@ -1,3 +1,5 @@
+import { useRef } from "react";
+import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { useReveal } from "@/lib/reveal";
 
 const QUOTES = [
@@ -37,19 +39,24 @@ const FULL_TESTIMONIALS = [
 
 export const Testimonials = () => {
     const rHead = useReveal(0);
+    const scrollRef = useRef(null);
+
+    const scrollBy = (delta) => {
+        scrollRef.current?.scrollBy({ left: delta, behavior: "smooth" });
+    };
 
     return (
         <section
             id="testimonials"
             data-testid="testimonials-section"
-            className="relative py-14 md:py-20 overflow-hidden"
+            className="relative py-10 md:py-14 overflow-hidden"
         >
-            <div className="overflow-hidden border-y border-[#0B1120]/8 py-5 mb-12 md:mb-16 bg-white">
+            <div className="overflow-hidden border-y border-[#0B1120]/8 py-4 mb-8 md:mb-10 bg-white">
                 <div className="flex animate-marquee whitespace-nowrap">
                     {[...QUOTES, ...QUOTES].map((q, i) => (
                         <span
                             key={i}
-                            className="text-lg md:text-xl text-[#0B1120]/70 mx-6 inline-flex items-center gap-6 font-display"
+                            className="text-base md:text-xl text-[#0B1120]/70 mx-5 md:mx-6 inline-flex items-center gap-5 md:gap-6 font-display"
                             style={{ fontWeight: 400 }}
                         >
                             "{q}"
@@ -59,21 +66,51 @@ export const Testimonials = () => {
                 </div>
             </div>
 
-            <div className="max-w-[1180px] mx-auto px-6 md:px-10">
-                <div ref={rHead} className="reveal text-center mb-10">
+            <div className="max-w-[1280px] mx-auto px-6 md:px-10">
+                <div
+                    ref={rHead}
+                    className="reveal flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6 md:mb-8"
+                >
                     <h2
-                        className="font-display tracking-[-0.03em] text-[#0B1120] max-w-[820px] mx-auto"
+                        className="font-display tracking-[-0.03em] text-[#0B1120] max-w-[640px]"
                         style={{
-                            fontSize: "clamp(2rem, 4.5vw, 3.4rem)",
+                            fontSize: "clamp(1.75rem, 4vw, 3rem)",
                             lineHeight: 1.05,
                             fontWeight: 400,
                         }}
                     >
                         Brand yang sudah berhenti pegang kamera.
                     </h2>
+
+                    <div className="hidden md:flex items-center gap-2">
+                        <button
+                            data-testid="testimonials-prev"
+                            onClick={() => scrollBy(-380)}
+                            className="w-10 h-10 rounded-full bg-white border border-[#0B1120]/10 hover:border-[#0B1120]/40 grid place-items-center text-[#0B1120] transition-all"
+                            aria-label="Previous testimonial"
+                        >
+                            <ChevronLeft size={18} />
+                        </button>
+                        <button
+                            data-testid="testimonials-next"
+                            onClick={() => scrollBy(380)}
+                            className="w-10 h-10 rounded-full bg-white border border-[#0B1120]/10 hover:border-[#0B1120]/40 grid place-items-center text-[#0B1120] transition-all"
+                            aria-label="Next testimonial"
+                        >
+                            <ChevronRight size={18} />
+                        </button>
+                    </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+                <div
+                    ref={scrollRef}
+                    data-testid="testimonials-track"
+                    className="flex gap-4 md:gap-5 overflow-x-auto snap-x snap-mandatory pb-3 no-scrollbar -mx-6 md:-mx-10 px-6 md:px-10"
+                    style={{
+                        scrollBehavior: "smooth",
+                        WebkitOverflowScrolling: "touch",
+                    }}
+                >
                     {FULL_TESTIMONIALS.map((t, idx) => (
                         <Card key={t.name} t={t} idx={idx} />
                     ))}
@@ -84,24 +121,25 @@ export const Testimonials = () => {
 };
 
 const Card = ({ t, idx }) => {
-    const ref = useReveal(idx * 120);
     return (
         <article
-            ref={ref}
             data-testid={`testimonial-card-${idx}`}
-            className="reveal bg-white border border-[#0B1120]/8 rounded-2xl p-7 flex flex-col justify-between hover:shadow-md transition-all duration-300 min-h-[300px]"
+            className="shrink-0 snap-start bg-white border border-[#0B1120]/8 rounded-2xl p-6 md:p-7 flex flex-col justify-between hover:shadow-md transition-all duration-300 w-[85%] sm:w-[55%] md:w-[360px]"
         >
-            <p className="text-base md:text-lg leading-relaxed text-[#0B1120]">
-                "{t.quote}"
-            </p>
-            <div className="mt-7 pt-5 border-t border-[#0B1120]/8">
+            <div>
+                <Quote size={20} className="text-[#2A4FE0]/40 mb-3" />
+                <p className="text-[15px] md:text-base leading-relaxed text-[#0B1120]">
+                    {t.quote}
+                </p>
+            </div>
+            <div className="mt-6 pt-4 border-t border-[#0B1120]/8">
                 <div className="text-sm font-semibold text-[#0B1120]">
                     {t.name}
                 </div>
                 <div className="text-xs text-[#1D1D1F]/55 mt-0.5">
                     {t.role}
                 </div>
-                <div className="mt-3 text-[11px] text-[#1D1D1F]/40">
+                <div className="mt-2 text-[11px] text-[#1D1D1F]/40">
                     {t.meta}
                 </div>
             </div>

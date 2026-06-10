@@ -62,7 +62,7 @@ export const Hero = () => {
         <section
             id="top"
             data-testid="hero-section"
-            className="relative pt-24 md:pt-28 pb-12 md:pb-16 overflow-hidden"
+            className="relative pt-20 md:pt-24 pb-8 md:pb-12 overflow-hidden"
         >
             <div className="absolute inset-0 bg-dot-grid opacity-60 pointer-events-none" />
 
@@ -142,8 +142,8 @@ export const Hero = () => {
                 </div>
 
                 {/* Platforms marquee strip */}
-                <div className="mt-12 md:mt-16">
-                    <div className="text-xs text-[#1D1D1F]/40 mb-5">
+                <div className="mt-8 md:mt-12">
+                    <div className="text-xs text-[#1D1D1F]/40 mb-4">
                         Konten siap pakai untuk semua platform brand Anda
                     </div>
                     <div className="relative">

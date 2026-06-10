@@ -35,7 +35,7 @@ export const BesideYou = () => {
         <section
             id="beside"
             data-testid="beside-section"
-            className="relative py-14 md:py-20"
+            className="relative py-10 md:py-14"
         >
             <div className="max-w-[1280px] mx-auto px-6 md:px-10">
                 <div className="grid grid-cols-12 gap-6 md:gap-10 items-start">

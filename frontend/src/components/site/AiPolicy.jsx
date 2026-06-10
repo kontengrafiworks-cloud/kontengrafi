@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import {
     Eye,
     ShieldOff,
@@ -9,6 +10,8 @@ import {
     Ban,
     UserCheck,
     Pencil,
+    ChevronLeft,
+    ChevronRight,
 } from "lucide-react";
 import { useReveal } from "@/lib/reveal";
 
@@ -68,36 +71,73 @@ const POLICIES = [
 export const AiPolicy = () => {
     const rHead = useReveal(0);
     const rFoot = useReveal(160);
+    const scrollRef = useRef(null);
+
+    const scrollBy = (delta) => {
+        scrollRef.current?.scrollBy({ left: delta, behavior: "smooth" });
+    };
 
     return (
         <section
             id="ai-policy"
             data-testid="ai-policy-section"
-            className="relative py-14 md:py-20"
+            className="relative py-10 md:py-14"
         >
-            <div className="max-w-[1180px] mx-auto px-6 md:px-10">
-                <div ref={rHead} className="reveal text-center mb-12 md:mb-14">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#0B1120]/10 text-[11px] uppercase tracking-[0.15em] text-[#1D1D1F]/55 mb-5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#2A4FE0]" />
-                        AI Policy
+            <div className="max-w-[1280px] mx-auto px-6 md:px-10">
+                <div
+                    ref={rHead}
+                    className="reveal flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6 md:mb-8"
+                >
+                    <div className="max-w-[640px]">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#0B1120]/10 text-[11px] uppercase tracking-[0.15em] text-[#1D1D1F]/55 mb-3">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#2A4FE0]" />
+                            AI Policy
+                        </div>
+                        <h2
+                            className="font-display tracking-[-0.03em] text-[#0B1120]"
+                            style={{
+                                fontSize: "clamp(1.75rem, 4vw, 3rem)",
+                                lineHeight: 1.05,
+                                fontWeight: 400,
+                            }}
+                        >
+                            Kebijakan Penggunaan AI.
+                        </h2>
+                        <p className="mt-2 text-sm md:text-base text-[#1D1D1F]/65 max-w-[520px]">
+                            Komitmen kami untuk produksi konten yang etis,
+                            transparan, dan bertanggung jawab.
+                        </p>
                     </div>
-                    <h2
-                        className="font-display tracking-[-0.03em] text-[#0B1120] max-w-[820px] mx-auto"
-                        style={{
-                            fontSize: "clamp(2rem, 4.5vw, 3.2rem)",
-                            lineHeight: 1.05,
-                            fontWeight: 400,
-                        }}
-                    >
-                        Kebijakan Penggunaan AI.
-                    </h2>
-                    <p className="mt-4 text-base text-[#1D1D1F]/65 max-w-[600px] mx-auto">
-                        Komitmen kami untuk produksi konten yang etis,
-                        transparan, dan bertanggung jawab.
-                    </p>
+
+                    <div className="hidden md:flex items-center gap-2">
+                        <button
+                            data-testid="ai-policy-prev"
+                            onClick={() => scrollBy(-360)}
+                            className="w-10 h-10 rounded-full bg-white border border-[#0B1120]/10 hover:border-[#0B1120]/40 grid place-items-center text-[#0B1120] transition-all"
+                            aria-label="Previous policy"
+                        >
+                            <ChevronLeft size={18} />
+                        </button>
+                        <button
+                            data-testid="ai-policy-next"
+                            onClick={() => scrollBy(360)}
+                            className="w-10 h-10 rounded-full bg-white border border-[#0B1120]/10 hover:border-[#0B1120]/40 grid place-items-center text-[#0B1120] transition-all"
+                            aria-label="Next policy"
+                        >
+                            <ChevronRight size={18} />
+                        </button>
+                    </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+                <div
+                    ref={scrollRef}
+                    data-testid="ai-policy-track"
+                    className="flex gap-4 md:gap-5 overflow-x-auto snap-x snap-mandatory pb-3 no-scrollbar -mx-6 md:-mx-10 px-6 md:px-10"
+                    style={{
+                        scrollBehavior: "smooth",
+                        WebkitOverflowScrolling: "touch",
+                    }}
+                >
                     {POLICIES.map((p, idx) => (
                         <PolicyItem key={p.title} item={p} idx={idx} />
                     ))}
@@ -106,12 +146,12 @@ export const AiPolicy = () => {
                 {/* Closing note */}
                 <div
                     ref={rFoot}
-                    className="reveal mt-10 md:mt-12 relative bg-white border border-[#0B1120]/8 rounded-2xl p-6 md:p-7"
+                    className="reveal mt-8 md:mt-10 relative bg-white border border-[#0B1120]/8 rounded-2xl p-5 md:p-7"
                 >
                     <div className="absolute -top-2.5 left-6 bg-[#F4F6FA] px-3 text-[11px] uppercase tracking-[0.15em] text-[#2A4FE0]">
                         Catatan
                     </div>
-                    <p className="text-base md:text-lg leading-relaxed text-[#0B1120]/85">
+                    <p className="text-sm md:text-base leading-relaxed text-[#0B1120]/85">
                         AI digunakan sebagai{" "}
                         <span className="font-medium underline decoration-[#2A4FE0]/40 decoration-2 underline-offset-2">
                             alat bantu
@@ -120,9 +160,9 @@ export const AiPolicy = () => {
                         sebagai pengganti penilaian profesional, etika, dan
                         tanggung jawab manusia dalam pembuatan konten.
                     </p>
-                    <div className="mt-6 pt-5 border-t border-dashed border-[#0B1120]/15 flex items-center gap-3">
+                    <div className="mt-5 pt-4 border-t border-dashed border-[#0B1120]/15 flex flex-wrap items-center gap-3">
                         <span
-                            className="text-2xl md:text-3xl text-[#0B1120]"
+                            className="text-xl md:text-2xl text-[#0B1120]"
                             style={{
                                 fontFamily: "'Caveat', cursive",
                                 fontWeight: 700,
@@ -132,8 +172,8 @@ export const AiPolicy = () => {
                         >
                             Justine Feroni
                         </span>
-                        <div className="flex-1 h-px border-t border-dashed border-[#0B1120]/15" />
-                        <span className="text-xs text-[#1D1D1F]/55">
+                        <div className="hidden sm:block flex-1 h-px border-t border-dashed border-[#0B1120]/15" />
+                        <span className="text-[11px] md:text-xs text-[#1D1D1F]/55">
                             Founder of Kontengrafi
                         </span>
                     </div>
@@ -144,25 +184,21 @@ export const AiPolicy = () => {
 };
 
 const PolicyItem = ({ item, idx }) => {
-    const ref = useReveal(idx * 60);
     const Icon = item.icon;
     return (
         <div
-            ref={ref}
             data-testid={`ai-policy-item-${idx}`}
-            className="reveal group bg-white border border-[#0B1120]/8 rounded-2xl p-5 md:p-6 flex gap-4 hover:border-[#2A4FE0]/30 hover:shadow-sm transition-all"
+            className="group shrink-0 snap-start bg-white border border-[#0B1120]/8 rounded-2xl p-5 md:p-6 w-[80%] sm:w-[55%] md:w-[340px] hover:border-[#2A4FE0]/30 hover:shadow-sm transition-all"
         >
-            <span className="flex-shrink-0 w-10 h-10 rounded-xl bg-[#2A4FE0]/8 grid place-items-center text-[#2A4FE0] group-hover:bg-[#2A4FE0] group-hover:text-white transition-colors">
+            <span className="inline-flex w-10 h-10 rounded-xl bg-[#2A4FE0]/8 items-center justify-center text-[#2A4FE0] group-hover:bg-[#2A4FE0] group-hover:text-white transition-colors mb-3">
                 <Icon size={18} />
             </span>
-            <div className="flex-1 min-w-0">
-                <div className="font-semibold text-[#0B1120] text-[15px]">
-                    {item.title}
-                </div>
-                <p className="mt-1.5 text-sm text-[#1D1D1F]/65 leading-relaxed">
-                    {item.body}
-                </p>
+            <div className="font-semibold text-[#0B1120] text-[15px] leading-snug">
+                {item.title}
             </div>
+            <p className="mt-1.5 text-sm text-[#1D1D1F]/65 leading-relaxed">
+                {item.body}
+            </p>
         </div>
     );
 };

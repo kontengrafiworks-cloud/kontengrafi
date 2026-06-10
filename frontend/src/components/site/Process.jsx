@@ -29,10 +29,10 @@ export const Process = () => {
         <section
             id="process"
             data-testid="process-section"
-            className="relative py-14 md:py-20"
+            className="relative py-10 md:py-14"
         >
             <div className="max-w-[1180px] mx-auto px-6 md:px-10">
-                <div ref={rHead} className="reveal text-center mb-10 md:mb-14">
+                <div ref={rHead} className="reveal text-center mb-8 md:mb-10">
                     <h2
                         className="font-display tracking-[-0.03em] text-[#0B1120] max-w-[820px] mx-auto"
                         style={{

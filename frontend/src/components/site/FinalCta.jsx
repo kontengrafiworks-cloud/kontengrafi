@@ -10,7 +10,7 @@ export const FinalCta = () => {
         <section
             id="contact"
             data-testid="contact-section"
-            className="relative py-14 md:py-20"
+            className="relative py-10 md:py-14"
         >
             <div className="max-w-[1180px] mx-auto px-6 md:px-10 text-center">
                 <div ref={r1} className="reveal">
@@ -32,7 +32,7 @@ export const FinalCta = () => {
 
                 <div
                     ref={r2}
-                    className="reveal mt-10 flex flex-wrap items-center justify-center gap-3"
+                    className="reveal mt-8 flex flex-wrap items-center justify-center gap-3"
                 >
                     <a
                         data-testid="final-cta-whatsapp"

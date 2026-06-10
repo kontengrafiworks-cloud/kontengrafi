@@ -36,7 +36,7 @@ export const PermissionCards = () => {
         <section
             id="cards"
             data-testid="cards-section"
-            className="relative py-14 md:py-20 space-y-14 md:space-y-20"
+            className="relative py-10 md:py-14 space-y-10 md:space-y-14"
         >
             {CARDS.map((card, idx) => (
                 <PermissionCard key={card.id} {...card} idx={idx} />
