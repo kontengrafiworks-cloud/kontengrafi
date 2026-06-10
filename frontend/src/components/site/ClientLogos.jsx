@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from "react";
 import { useReveal } from "@/lib/reveal";
 
 const CLIENTS = [
@@ -32,61 +31,11 @@ const CLIENTS = [
     },
 ];
 
-// Duplicate track so auto-scroll loops seamlessly
+// Duplicate so CSS marquee loops seamlessly
 const TRACK = [...CLIENTS, ...CLIENTS];
 
 export const ClientLogos = () => {
     const rHead = useReveal(0);
-    const trackRef = useRef(null);
-    const [isPaused, setIsPaused] = useState(false);
-    const [isDragging, setIsDragging] = useState(false);
-    const dragRef = useRef({ startX: 0, scrollLeftStart: 0 });
-
-    // Auto-scroll loop (scrollLeft based, plays nicely with manual drag)
-    useEffect(() => {
-        let raf;
-        let last = performance.now();
-        const SPEED = 35; // px per second
-
-        const tick = (now) => {
-            const dt = (now - last) / 1000;
-            last = now;
-            const el = trackRef.current;
-            if (el && !isPaused && !isDragging) {
-                el.scrollLeft += SPEED * dt;
-                const half = el.scrollWidth / 2;
-                if (el.scrollLeft >= half) {
-                    el.scrollLeft -= half;
-                } else if (el.scrollLeft < 0) {
-                    el.scrollLeft += half;
-                }
-            }
-            raf = requestAnimationFrame(tick);
-        };
-        raf = requestAnimationFrame(tick);
-        return () => cancelAnimationFrame(raf);
-    }, [isPaused, isDragging]);
-
-    // --- Mouse drag handlers (desktop) ---
-    const onMouseDown = (e) => {
-        const el = trackRef.current;
-        if (!el) return;
-        setIsDragging(true);
-        dragRef.current = {
-            startX: e.pageX - el.offsetLeft,
-            scrollLeftStart: el.scrollLeft,
-        };
-    };
-    const onMouseMove = (e) => {
-        if (!isDragging) return;
-        const el = trackRef.current;
-        if (!el) return;
-        e.preventDefault();
-        const x = e.pageX - el.offsetLeft;
-        const walk = (x - dragRef.current.startX) * 1.5;
-        el.scrollLeft = dragRef.current.scrollLeftStart - walk;
-    };
-    const onMouseUp = () => setIsDragging(false);
 
     return (
         <section
@@ -106,25 +55,10 @@ export const ClientLogos = () => {
                     </div>
                 </div>
 
-                <div className="relative">
+                <div className="relative overflow-hidden py-3">
                     <div
-                        ref={trackRef}
                         data-testid="clients-track"
-                        onMouseEnter={() => setIsPaused(true)}
-                        onMouseLeave={() => {
-                            setIsPaused(false);
-                            setIsDragging(false);
-                        }}
-                        onMouseDown={onMouseDown}
-                        onMouseMove={onMouseMove}
-                        onMouseUp={onMouseUp}
-                        className={`flex items-center gap-5 md:gap-7 overflow-x-auto no-scrollbar py-3 select-none ${
-                            isDragging ? "cursor-grabbing" : "cursor-grab"
-                        }`}
-                        style={{
-                            WebkitOverflowScrolling: "touch",
-                            scrollbarWidth: "none",
-                        }}
+                        className="flex items-center gap-5 md:gap-7 animate-marquee whitespace-nowrap"
                     >
                         {TRACK.map((c, i) => (
                             <div
@@ -154,13 +88,8 @@ export const ClientLogos = () => {
                             </div>
                         ))}
                     </div>
-                    {/* Edge fade matching page bg */}
                     <div className="pointer-events-none absolute inset-y-0 left-0 w-12 md:w-20 bg-gradient-to-r from-[#F4F6FA] to-transparent" />
                     <div className="pointer-events-none absolute inset-y-0 right-0 w-12 md:w-20 bg-gradient-to-l from-[#F4F6FA] to-transparent" />
-                </div>
-
-                <div className="mt-4 text-center text-[11px] text-[#1D1D1F]/40">
-                    Geser untuk lihat lebih banyak
                 </div>
             </div>
         </section>
