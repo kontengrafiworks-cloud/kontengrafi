@@ -25,8 +25,7 @@ export const FinalCta = () => {
                         Mulai produksi konten Anda hari ini.
                     </h2>
                     <p className="mt-5 text-base md:text-lg text-[#1D1D1F]/65 max-w-[580px] mx-auto">
-                        Chat di WhatsApp untuk konsultasi gratis 15 menit —
-                        kami bantu cari format konten yang pas untuk brand Anda.
+                        Chat di WhatsApp untuk konsultasi kebutuhan kamu.
                     </p>
                 </div>
 

@@ -23,15 +23,6 @@ export const Footer = () => {
                     >
                         Instagram
                     </a>
-                    <a
-                        href={CONTACT.tiktok}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:text-[#0B1120]"
-                        data-testid="footer-tiktok"
-                    >
-                        TikTok
-                    </a>
                 </div>
                 <span>
                     © {new Date().getFullYear()} {BRAND.name}

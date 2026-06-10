@@ -79,7 +79,7 @@ export const Testimonials = () => {
                             fontWeight: 400,
                         }}
                     >
-                        Brand yang sudah berhenti pegang kamera.
+                        Mereka yang sudah berhenti pegang kamera.
                     </h2>
 
                     <div className="hidden md:flex items-center gap-2">
