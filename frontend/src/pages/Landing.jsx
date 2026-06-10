@@ -6,6 +6,7 @@ import { Process } from "@/components/site/Process";
 import { Portfolio } from "@/components/site/Portfolio";
 import { Testimonials } from "@/components/site/Testimonials";
 import { Faq } from "@/components/site/Faq";
+import { AiPolicy } from "@/components/site/AiPolicy";
 import { FinalCta } from "@/components/site/FinalCta";
 import { Footer } from "@/components/site/Footer";
 
@@ -23,6 +24,7 @@ export default function Landing() {
             <Portfolio />
             <Testimonials />
             <Faq />
+            <AiPolicy />
             <FinalCta />
             <Footer />
         </main>

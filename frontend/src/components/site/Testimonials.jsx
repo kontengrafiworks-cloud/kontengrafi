@@ -1,5 +1,4 @@
 import { useReveal } from "@/lib/reveal";
-import { PORTRAIT_AVATARS } from "@/lib/images";
 
 const QUOTES = [
     "Stok konten kami sekarang penuh 3 bulan ke depan.",
@@ -15,27 +14,24 @@ const QUOTES = [
 const FULL_TESTIMONIALS = [
     {
         quote:
-            "Saya kirim brief lewat WhatsApp, malam itu juga storyboard sudah siap. Produksi yang cepat tanpa kehilangan kualitas.",
-        name: "Sophie K.",
-        role: "Founder · Brand DTC",
-        meta: "Brand Voice + Final Delivery",
-        img: PORTRAIT_AVATARS.female_1,
+            "Hasil videonya bagus, saya suka — nggak pusing-pusing stok konten lagi.",
+        name: "Lavish",
+        role: "Brand",
+        meta: "Commercial · UGC",
     },
     {
         quote:
-            "Konsistensinya luar biasa — gaya brand kami terjaga persis bahkan setelah 4 bulan kerja sama.",
-        name: "Marcus R.",
-        role: "Marketing Lead · SaaS",
-        meta: "Shoot Access · Tiap bulan",
-        img: PORTRAIT_AVATARS.male_1,
+            "Saya males bikin video untuk affiliate, jadi ngestoknya dari Kontengrafi aja.",
+        name: "Dinda",
+        role: "Affiliator",
+        meta: "UGC · Tiap minggu",
     },
     {
         quote:
-            "Awalnya saya skeptis outsourcing produksi. Sekarang stok konten saya tidak pernah kosong dan saya bisa fokus jualan.",
-        name: "Yuri T.",
-        role: "Owner · UMKM",
-        meta: "Early client · sejak Q1 2025",
-        img: PORTRAIT_AVATARS.male_2,
+            "Pengerjaannya cepet sih, apalagi saya distributor — jadi ngerasa nggak usah ribet bikin konten.",
+        name: "Kafamilk",
+        role: "Brand",
+        meta: "Commercial · Volume content",
     },
 ];
 
@@ -99,21 +95,11 @@ const Card = ({ t, idx }) => {
                 "{t.quote}"
             </p>
             <div className="mt-7 pt-5 border-t border-[#0B1120]/8">
-                <div className="flex items-center gap-3">
-                    <img
-                        src={t.img}
-                        alt={t.name}
-                        loading="lazy"
-                        className="w-10 h-10 rounded-full object-cover"
-                    />
-                    <div>
-                        <div className="text-sm font-semibold text-[#0B1120]">
-                            {t.name}
-                        </div>
-                        <div className="text-xs text-[#1D1D1F]/55">
-                            {t.role}
-                        </div>
-                    </div>
+                <div className="text-sm font-semibold text-[#0B1120]">
+                    {t.name}
+                </div>
+                <div className="text-xs text-[#1D1D1F]/55 mt-0.5">
+                    {t.role}
                 </div>
                 <div className="mt-3 text-[11px] text-[#1D1D1F]/40">
                     {t.meta}

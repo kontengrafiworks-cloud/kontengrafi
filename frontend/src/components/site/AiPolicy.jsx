@@ -1,0 +1,168 @@
+import {
+    Eye,
+    ShieldOff,
+    CheckCircle2,
+    Copyright,
+    UserX,
+    Lock,
+    Sparkles,
+    Ban,
+    UserCheck,
+    Pencil,
+} from "lucide-react";
+import { useReveal } from "@/lib/reveal";
+
+const POLICIES = [
+    {
+        icon: Eye,
+        title: "Transparansi Konten AI",
+        body: "Konten yang dibuat seluruhnya atau sebagian menggunakan AI diinformasikan kepada klien jika diperlukan untuk menjaga transparansi.",
+    },
+    {
+        icon: ShieldOff,
+        title: "Larangan Informasi Palsu",
+        body: "Konten AI tidak boleh digunakan untuk menyebarkan informasi yang menyesatkan, hoaks, atau klaim yang tidak dapat diverifikasi.",
+    },
+    {
+        icon: CheckCircle2,
+        title: "Verifikasi Sebelum Publikasi",
+        body: "Seluruh konten yang dihasilkan AI wajib ditinjau dan diverifikasi oleh tim sebelum dipublikasikan.",
+    },
+    {
+        icon: Copyright,
+        title: "Menghormati Hak Cipta",
+        body: "Penggunaan gambar, video, musik, atau teks yang dihasilkan AI harus tetap memperhatikan hak cipta dan ketentuan platform yang berlaku.",
+    },
+    {
+        icon: UserX,
+        title: "Larangan Meniru Identitas Pihak Lain",
+        body: "AI tidak boleh digunakan untuk membuat konten yang meniru, menyamar, atau mengatasnamakan individu maupun organisasi tanpa izin.",
+    },
+    {
+        icon: Lock,
+        title: "Perlindungan Data Pribadi",
+        body: "Dilarang memasukkan data pribadi, informasi rahasia, atau dokumen internal perusahaan ke dalam platform AI tanpa persetujuan yang sesuai.",
+    },
+    {
+        icon: Sparkles,
+        title: "Menjaga Reputasi Merek",
+        body: "Konten AI harus sesuai dengan nilai, identitas, dan pedoman komunikasi merek yang telah ditetapkan oleh standar moral & kebijakan platform.",
+    },
+    {
+        icon: Ban,
+        title: "Tidak Mengandung Unsur Diskriminatif",
+        body: "Konten AI tidak boleh memuat ujaran kebencian, diskriminasi, pelecehan, atau konten yang merugikan kelompok tertentu.",
+    },
+    {
+        icon: UserCheck,
+        title: "Tanggung Jawab Tetap",
+        body: "Kontengrafi tetap bertanggung jawab atas seluruh konten yang dipublikasikan meskipun dibuat dengan bantuan AI.",
+    },
+    {
+        icon: Pencil,
+        title: "Hak Revisi dan Penghapusan",
+        body: "Perusahaan atau pengelola akun berhak mengubah, menunda, atau menghapus konten AI yang dianggap tidak sesuai dengan kebijakan, regulasi, atau kepentingan bisnis.",
+    },
+];
+
+export const AiPolicy = () => {
+    const rHead = useReveal(0);
+    const rFoot = useReveal(160);
+
+    return (
+        <section
+            id="ai-policy"
+            data-testid="ai-policy-section"
+            className="relative py-14 md:py-20"
+        >
+            <div className="max-w-[1180px] mx-auto px-6 md:px-10">
+                <div ref={rHead} className="reveal text-center mb-12 md:mb-14">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#0B1120]/10 text-[11px] uppercase tracking-[0.15em] text-[#1D1D1F]/55 mb-5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#2A4FE0]" />
+                        AI Policy
+                    </div>
+                    <h2
+                        className="font-display tracking-[-0.03em] text-[#0B1120] max-w-[820px] mx-auto"
+                        style={{
+                            fontSize: "clamp(2rem, 4.5vw, 3.2rem)",
+                            lineHeight: 1.05,
+                            fontWeight: 400,
+                        }}
+                    >
+                        Kebijakan Penggunaan AI.
+                    </h2>
+                    <p className="mt-4 text-base text-[#1D1D1F]/65 max-w-[600px] mx-auto">
+                        Komitmen kami untuk produksi konten yang etis,
+                        transparan, dan bertanggung jawab.
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+                    {POLICIES.map((p, idx) => (
+                        <PolicyItem key={p.title} item={p} idx={idx} />
+                    ))}
+                </div>
+
+                {/* Closing note */}
+                <div
+                    ref={rFoot}
+                    className="reveal mt-10 md:mt-12 relative bg-white border border-[#0B1120]/8 rounded-2xl p-6 md:p-7"
+                >
+                    <div className="absolute -top-2.5 left-6 bg-[#F4F6FA] px-3 text-[11px] uppercase tracking-[0.15em] text-[#2A4FE0]">
+                        Catatan
+                    </div>
+                    <p className="text-base md:text-lg leading-relaxed text-[#0B1120]/85">
+                        AI digunakan sebagai{" "}
+                        <span className="font-medium underline decoration-[#2A4FE0]/40 decoration-2 underline-offset-2">
+                            alat bantu
+                        </span>{" "}
+                        untuk meningkatkan efisiensi dan kreativitas — bukan
+                        sebagai pengganti penilaian profesional, etika, dan
+                        tanggung jawab manusia dalam pembuatan konten.
+                    </p>
+                    <div className="mt-6 pt-5 border-t border-dashed border-[#0B1120]/15 flex items-center gap-3">
+                        <span
+                            className="text-2xl md:text-3xl text-[#0B1120]"
+                            style={{
+                                fontFamily: "'Caveat', cursive",
+                                fontWeight: 700,
+                                transform: "rotate(-4deg)",
+                                display: "inline-block",
+                            }}
+                        >
+                            Justine Feroni
+                        </span>
+                        <div className="flex-1 h-px border-t border-dashed border-[#0B1120]/15" />
+                        <span className="text-xs text-[#1D1D1F]/55">
+                            Founder of Kontengrafi
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+const PolicyItem = ({ item, idx }) => {
+    const ref = useReveal(idx * 60);
+    const Icon = item.icon;
+    return (
+        <div
+            ref={ref}
+            data-testid={`ai-policy-item-${idx}`}
+            className="reveal group bg-white border border-[#0B1120]/8 rounded-2xl p-5 md:p-6 flex gap-4 hover:border-[#2A4FE0]/30 hover:shadow-sm transition-all"
+        >
+            <span className="flex-shrink-0 w-10 h-10 rounded-xl bg-[#2A4FE0]/8 grid place-items-center text-[#2A4FE0] group-hover:bg-[#2A4FE0] group-hover:text-white transition-colors">
+                <Icon size={18} />
+            </span>
+            <div className="flex-1 min-w-0">
+                <div className="font-semibold text-[#0B1120] text-[15px]">
+                    {item.title}
+                </div>
+                <p className="mt-1.5 text-sm text-[#1D1D1F]/65 leading-relaxed">
+                    {item.body}
+                </p>
+            </div>
+        </div>
+    );
+};

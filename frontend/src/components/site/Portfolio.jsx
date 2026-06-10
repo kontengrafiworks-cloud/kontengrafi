@@ -111,8 +111,6 @@ export const Portfolio = () => {
                             />
                         ))}
                     </div>
-                    {/* edge fade */}
-                    <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-[#F4F6FA] to-transparent hidden md:block" />
                 </div>
 
                 {items.length === 0 && (
