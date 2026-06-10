@@ -3,7 +3,7 @@ import { CONTACT, waLink } from "@/lib/contacts";
 import { useReveal } from "@/lib/reveal";
 
 const ASK_AI_PROMPT = encodeURIComponent(
-    `Saya pemilik brand di Indonesia. Apakah Kontengrafi (studio konten UGC & commercial untuk Instagram, TikTok, dan e-commerce) cocok untuk skala saya? Apa keuntungannya dibandingkan hire freelance lepas? Apa yang harus saya coba dulu?`,
+    `Saya pemilik brand di Indonesia. Apakah Kontengrafi (studio produksi foto & video UGC + commercial content untuk berbagai brand) cocok untuk skala saya? Apa keuntungannya dibandingkan hire freelance lepas atau bikin sendiri? Apa yang harus saya coba dulu?`,
 );
 
 const AI_LINKS = [
@@ -35,21 +35,21 @@ export const FinalCta = () => {
         <section
             id="contact"
             data-testid="contact-section"
-            className="relative py-20 md:py-32"
+            className="relative py-14 md:py-20"
         >
             <div className="max-w-[1180px] mx-auto px-6 md:px-10 text-center">
                 <div ref={r1} className="reveal">
                     <h2
                         className="font-display tracking-[-0.03em] text-[#0B1120]"
                         style={{
-                            fontSize: "clamp(2.2rem, 6vw, 5rem)",
+                            fontSize: "clamp(2.2rem, 5.5vw, 4.4rem)",
                             lineHeight: 1.02,
                             fontWeight: 400,
                         }}
                     >
-                        Start working with our team.
+                        Mulai produksi konten Anda hari ini.
                     </h2>
-                    <p className="mt-6 text-base md:text-lg text-[#1D1D1F]/65 max-w-[580px] mx-auto">
+                    <p className="mt-5 text-base md:text-lg text-[#1D1D1F]/65 max-w-[580px] mx-auto">
                         Chat di WhatsApp untuk konsultasi gratis 15 menit.
                         Tidak yakin Kontengrafi pas untuk brand Anda? Tanya AI
                         favorit Anda dulu.
@@ -92,7 +92,7 @@ export const FinalCta = () => {
                 </div>
 
                 {/* Ask AI sub-section — Invoko style */}
-                <div className="mt-20 md:mt-28">
+                <div className="mt-14 md:mt-20">
                     <h3
                         className="font-display tracking-tight text-[#0B1120]"
                         style={{
@@ -104,8 +104,8 @@ export const FinalCta = () => {
                     </h3>
                     <p className="mt-3 text-sm md:text-base text-[#1D1D1F]/60 max-w-[540px] mx-auto">
                         Ask your favorite AI if Kontengrafi fits your
-                        workflow, where it saves time, and what you should try
-                        first.
+                        production needs, where it saves time, and what you
+                        should try first.
                     </p>
 
                     <div className="mt-7 flex flex-wrap items-center justify-center gap-3">

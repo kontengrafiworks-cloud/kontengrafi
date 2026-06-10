@@ -2,28 +2,28 @@ import { useReveal } from "@/lib/reveal";
 import { PORTRAIT_AVATARS } from "@/lib/images";
 
 const QUOTES = [
-    "Konten bulanan kami yang dulu butuh 2 minggu sekarang cuma 2 hari.",
-    "Engagement Instagram naik 3x sejak kami pakai Kontengrafi.",
-    "Mereka tahu cara bicara dengan audiens saya.",
+    "Stok konten kami sekarang penuh 3 bulan ke depan.",
+    "Konten bulanan yang dulu butuh 2 minggu sekarang 2 hari.",
+    "File final-nya rapi dan tinggal upload.",
     "Saya kira shooting-nya pakai budget 50 jutaan. Ternyata jauh di bawah.",
-    "UGC dari mereka langsung naikkan conversion ads kami.",
+    "UGC mereka jadi materi iklan favorit tim ads kami.",
     "Brief jam 10 pagi, mockup feed siap sore.",
     "Tim paling efisien yang pernah saya kerjakan.",
-    "Akhirnya bisa fokus jual, bukan pegang kamera.",
+    "Akhirnya fokus jual, bukan pegang kamera.",
 ];
 
 const FULL_TESTIMONIALS = [
     {
         quote:
-            "Saya kirim brief lewat WhatsApp dan Kontengrafi siapkan storyboard malam itu juga. Itu yang pertama.",
+            "Saya kirim brief lewat WhatsApp, malam itu juga storyboard sudah siap. Produksi yang cepat tanpa kehilangan kualitas.",
         name: "Sophie K.",
         role: "Founder · Brand DTC",
-        meta: "Brand Voice + Approval Flow",
+        meta: "Brand Voice + Final Delivery",
         img: PORTRAIT_AVATARS.female_1,
     },
     {
         quote:
-            "Yang bikin saya nempel itu konsistensi — Kontengrafi pakai gaya brand kami persis, bahkan setelah 4 bulan.",
+            "Konsistensinya luar biasa — gaya brand kami terjaga persis bahkan setelah 4 bulan kerja sama.",
         name: "Marcus R.",
         role: "Marketing Lead · SaaS",
         meta: "Shoot Access · Tiap bulan",
@@ -31,7 +31,7 @@ const FULL_TESTIMONIALS = [
     },
     {
         quote:
-            "Awalnya saya skeptis outsourcing konten. Tapi sekarang konten feed jadi tugas yang tidak pernah saya pikirkan lagi.",
+            "Awalnya saya skeptis outsourcing produksi. Sekarang stok konten saya tidak pernah kosong dan saya bisa fokus jualan.",
         name: "Yuri T.",
         role: "Owner · UMKM",
         meta: "Early client · sejak Q1 2025",
@@ -46,10 +46,9 @@ export const Testimonials = () => {
         <section
             id="testimonials"
             data-testid="testimonials-section"
-            className="relative py-20 md:py-32 overflow-hidden"
+            className="relative py-14 md:py-20 overflow-hidden"
         >
-            {/* Marquee strip */}
-            <div className="overflow-hidden border-y border-[#0B1120]/8 py-5 mb-16 md:mb-20 bg-white">
+            <div className="overflow-hidden border-y border-[#0B1120]/8 py-5 mb-12 md:mb-16 bg-white">
                 <div className="flex animate-marquee whitespace-nowrap">
                     {[...QUOTES, ...QUOTES].map((q, i) => (
                         <span
@@ -65,16 +64,16 @@ export const Testimonials = () => {
             </div>
 
             <div className="max-w-[1180px] mx-auto px-6 md:px-10">
-                <div ref={rHead} className="reveal text-center mb-14">
+                <div ref={rHead} className="reveal text-center mb-10">
                     <h2
                         className="font-display tracking-[-0.03em] text-[#0B1120] max-w-[820px] mx-auto"
                         style={{
-                            fontSize: "clamp(2rem, 5vw, 4rem)",
+                            fontSize: "clamp(2rem, 4.5vw, 3.4rem)",
                             lineHeight: 1.05,
                             fontWeight: 400,
                         }}
                     >
-                        Apa kata mereka yang sudah bekerja dengan kami.
+                        Brand yang sudah berhenti pegang kamera.
                     </h2>
                 </div>
 
@@ -99,7 +98,7 @@ const Card = ({ t, idx }) => {
             <p className="text-base md:text-lg leading-relaxed text-[#0B1120]">
                 "{t.quote}"
             </p>
-            <div className="mt-8 pt-5 border-t border-[#0B1120]/8">
+            <div className="mt-7 pt-5 border-t border-[#0B1120]/8">
                 <div className="flex items-center gap-3">
                     <img
                         src={t.img}

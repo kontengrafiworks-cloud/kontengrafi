@@ -10,7 +10,6 @@ const INLINE_PLATFORMS = [
     "facebook",
     "x",
     "shopee",
-    "spotify",
 ];
 
 const MARQUEE_PLATFORMS = [
@@ -20,73 +19,78 @@ const MARQUEE_PLATFORMS = [
     { slug: "pinterest", label: "Pinterest" },
     { slug: "facebook", label: "Facebook" },
     { slug: "x", label: "X" },
-    { slug: "spotify", label: "Spotify" },
     { slug: "shopee", label: "Shopee" },
     { slug: "whatsapp", label: "WhatsApp" },
     { slug: "googlechrome", label: "Chrome" },
 ];
 
-// Hand-drawn arrow pointing LEFT at the icons (kami bantu = "we help [these platforms]")
-const KamiBantuAnnotation = () => (
-    <span className="inline-flex items-center gap-1 align-middle ml-1" aria-hidden>
+// Annotation overlay: caption + curved arrow pointing DOWN at the icons
+const KamiBantuOverlay = () => (
+    <div
+        className="absolute -top-12 md:-top-16 right-[14%] md:right-[22%] flex flex-col items-end pointer-events-none select-none"
+        aria-hidden
+    >
+        <span
+            className="text-lg md:text-2xl text-[#0B1120]/75 leading-none whitespace-nowrap"
+            style={{ fontFamily: "'Caveat', cursive", fontWeight: 600 }}
+        >
+            kami produksi
+        </span>
         <svg
-            width="38"
-            height="34"
-            viewBox="0 0 38 34"
+            width="58"
+            height="60"
+            viewBox="0 0 58 60"
             fill="none"
             stroke="currentColor"
-            strokeWidth="1.4"
+            strokeWidth="1.6"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="text-[#0B1120]/55 inline-block"
+            className="text-[#0B1120]/65 mt-1 mr-3"
         >
-            <path d="M 34 28 C 24 26, 14 22, 6 12" />
-            <path d="M 4 16 L 6 8 L 12 12" />
+            {/* Curve from top-right going down then sweeping left to point at icons below */}
+            <path d="M 50 4 C 52 18, 46 32, 24 50" />
+            {/* Arrowhead at bottom-left, pointing down-left at icons */}
+            <path d="M 18 44 L 22 52 L 30 48" />
         </svg>
-        <span
-            className="text-base md:text-xl text-[#0B1120]/65 leading-none"
-            style={{ fontFamily: "'Caveat', cursive", fontWeight: 500 }}
-        >
-            kami bantu
-        </span>
-    </span>
+    </div>
 );
 
 export const Hero = () => {
     const r1 = useReveal(0);
     const r1b = useReveal(120);
-    const r1c = useReveal(240);
-    const r2 = useReveal(360);
-    const r3 = useReveal(480);
+    const r1c = useReveal(220);
+    const r2 = useReveal(320);
+    const r3 = useReveal(420);
 
     return (
         <section
             id="top"
             data-testid="hero-section"
-            className="relative pt-28 md:pt-36 pb-16 md:pb-24 overflow-hidden"
+            className="relative pt-24 md:pt-28 pb-12 md:pb-16 overflow-hidden"
         >
             {/* Subtle dotted grid background */}
             <div className="absolute inset-0 bg-dot-grid opacity-60 pointer-events-none" />
 
             <div className="relative max-w-[1280px] mx-auto px-6 md:px-10 text-center">
-                {/* Massive Invoko-style headline with inline icons */}
+                {/* Massive headline */}
                 <h1
                     ref={r1}
                     className="reveal font-display tracking-[-0.035em] text-[#0B1120]"
                     style={{
                         fontSize: "clamp(2.4rem, 8.5vw, 7rem)",
-                        lineHeight: 1.04,
+                        lineHeight: 1.02,
                         fontWeight: 400,
                     }}
                 >
                     A helping hand
                 </h1>
 
-                {/* Decorative icons row between headline lines (Invoko-style) */}
+                {/* Decorative icons row with arrow annotation overlay */}
                 <div
                     ref={r1b}
-                    className="reveal relative my-4 md:my-6 flex items-center justify-center gap-3 md:gap-4"
+                    className="reveal relative my-3 md:my-4 flex items-center justify-center"
                 >
+                    <KamiBantuOverlay />
                     <div className="flex items-center -space-x-2 md:-space-x-3">
                         {INLINE_PLATFORMS.map((slug, i) => (
                             <span
@@ -106,7 +110,6 @@ export const Hero = () => {
                             </span>
                         ))}
                     </div>
-                    <KamiBantuAnnotation />
                 </div>
 
                 <h1
@@ -114,7 +117,7 @@ export const Hero = () => {
                     className="reveal font-display tracking-[-0.035em] text-[#0B1120]"
                     style={{
                         fontSize: "clamp(2.4rem, 8.5vw, 7rem)",
-                        lineHeight: 1.04,
+                        lineHeight: 1.02,
                         fontWeight: 400,
                     }}
                 >
@@ -124,24 +127,20 @@ export const Hero = () => {
                 {/* Sub copy */}
                 <p
                     ref={r2}
-                    className="reveal mt-12 md:mt-16 max-w-[640px] mx-auto text-base md:text-lg text-[#1D1D1F]/70 leading-relaxed"
+                    className="reveal mt-8 md:mt-10 max-w-[640px] mx-auto text-base md:text-lg text-[#1D1D1F]/70 leading-relaxed"
                 >
-                    Kontengrafi adalah studio konten yang memproduksi{" "}
+                    Kontengrafi adalah studio yang{" "}
                     <span className="text-[#0B1120] font-medium underline decoration-[#2A4FE0]/50 decoration-2 underline-offset-4">
-                        UGC
+                        memproduksi
                     </span>{" "}
-                    dan{" "}
-                    <span className="text-[#0B1120] font-medium underline decoration-[#2A4FE0]/50 decoration-2 underline-offset-4">
-                        commercial content
-                    </span>{" "}
-                    untuk brand mana pun — siap tayang setiap minggu, tanpa
-                    Anda harus pegang kamera.
+                    foto & video — UGC dan commercial content — untuk brand
+                    mana pun. File final siap pakai, Anda tinggal upload.
                 </p>
 
                 {/* CTAs */}
                 <div
                     ref={r3}
-                    className="reveal mt-10 flex flex-wrap items-center justify-center gap-4"
+                    className="reveal mt-7 flex flex-wrap items-center justify-center gap-4"
                 >
                     <a
                         data-testid="hero-cta-primary"
@@ -157,10 +156,10 @@ export const Hero = () => {
                     </span>
                 </div>
 
-                {/* Platforms marquee strip — minimal, Invoko-style */}
-                <div className="mt-24 md:mt-32">
-                    <div className="text-xs text-[#1D1D1F]/40 mb-6">
-                        Hadir di semua platform untuk konten brand Anda
+                {/* Platforms marquee strip */}
+                <div className="mt-16 md:mt-20">
+                    <div className="text-xs text-[#1D1D1F]/40 mb-5">
+                        Konten siap pakai untuk semua platform brand Anda
                     </div>
                     <div className="relative">
                         <div className="overflow-hidden">

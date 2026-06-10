@@ -1,24 +1,24 @@
 import { useReveal } from "@/lib/reveal";
-import { Sparkles, CalendarCheck, Send } from "lucide-react";
+import { Sparkles, Camera, Package } from "lucide-react";
 
 const STEPS = [
     {
         n: "01",
         icon: Sparkles,
-        title: "Brief & Strategy",
-        body: "Diskusi 30 menit untuk memahami brand, audiens, dan goal. Kami susun content pillar & jadwal.",
+        title: "Brief & Konsep",
+        body: "Diskusi 30 menit untuk memahami brand, audiens, dan goal konten. Kami susun shotlist & moodboard.",
     },
     {
         n: "02",
-        icon: CalendarCheck,
-        title: "Shoot & Production",
-        body: "Tim kami eksekusi shoot — UGC, commercial, atau kombinasi keduanya. Semua sesuai shotlist.",
+        icon: Camera,
+        title: "Shoot & Produksi",
+        body: "Tim kami eksekusi shoot dengan kamera, lighting, dan stylist. Semua di-set sesuai shotlist.",
     },
     {
         n: "03",
-        icon: Send,
-        title: "Review & Publish",
-        body: "Konten siap di Notion / Drive untuk review. Setelah disetujui, kami jadwalkan posting setiap minggu.",
+        icon: Package,
+        title: "Review & Delivery",
+        body: "Draft di-review di Notion / Drive. Setelah disetujui, file final diserahkan dalam rasio multi-platform — siap pakai.",
     },
 ];
 
@@ -29,24 +29,23 @@ export const Process = () => {
         <section
             id="process"
             data-testid="process-section"
-            className="relative py-20 md:py-32"
+            className="relative py-14 md:py-20"
         >
             <div className="max-w-[1180px] mx-auto px-6 md:px-10">
-                <div ref={rHead} className="reveal text-center mb-14 md:mb-20">
+                <div ref={rHead} className="reveal text-center mb-10 md:mb-14">
                     <h2
                         className="font-display tracking-[-0.03em] text-[#0B1120] max-w-[820px] mx-auto"
                         style={{
-                            fontSize: "clamp(2rem, 5vw, 4rem)",
+                            fontSize: "clamp(2rem, 4.5vw, 3.4rem)",
                             lineHeight: 1.05,
                             fontWeight: 400,
                         }}
                     >
-                        Cara kami bekerja — sederhana, transparan, terjadwal.
+                        Tiga langkah dari brief ke file siap upload.
                     </h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 relative">
-                    {/* Dotted connecting line */}
                     <div className="hidden md:block absolute top-[44px] left-[16%] right-[16%] h-px border-t border-dashed border-[#0B1120]/20 pointer-events-none" />
                     {STEPS.map((s, idx) => (
                         <Step key={s.n} {...s} idx={idx} />
@@ -61,7 +60,7 @@ const Step = ({ n, icon: Icon, title, body, idx }) => {
     const ref = useReveal(idx * 120);
     return (
         <div ref={ref} className="reveal text-center md:text-left relative">
-            <div className="mb-7">
+            <div className="mb-6">
                 <div className="relative w-[88px] h-[88px] mx-auto md:mx-0 rounded-full bg-white border border-[#0B1120]/8 shadow-md grid place-items-center text-[#0B1120]">
                     <Icon size={28} />
                     <span className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-[#2A4FE0] text-white grid place-items-center text-xs font-semibold">
@@ -75,7 +74,7 @@ const Step = ({ n, icon: Icon, title, body, idx }) => {
             >
                 {title}
             </h3>
-            <p className="mt-3 text-base text-[#1D1D1F]/65 leading-relaxed max-w-xs mx-auto md:mx-0">
+            <p className="mt-2.5 text-base text-[#1D1D1F]/65 leading-relaxed max-w-xs mx-auto md:mx-0">
                 {body}
             </p>
         </div>

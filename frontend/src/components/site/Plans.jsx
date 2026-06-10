@@ -11,9 +11,9 @@ const PLANS = [
         period: "/ paket",
         features: [
             "1 hari shoot (4 jam)",
-            "12 konten UGC siap upload",
+            "12 foto UGC siap pakai",
             "2 reel pendek",
-            "Content calendar bulanan",
+            "Multi-rasio per platform",
         ],
         cta: "Pilih Starter",
     },
@@ -25,10 +25,10 @@ const PLANS = [
         period: "/ bulan",
         features: [
             "2 hari shoot per bulan",
-            "30 konten UGC + commercial",
+            "30 foto UGC + commercial",
             "6 reel & motion content",
-            "Brand voice & moodboard custom",
-            "Approval flow + analytics",
+            "Brand voice + moodboard custom",
+            "File final multi-rasio + revisi",
         ],
         cta: "Pilih Grow",
         highlight: true,
@@ -40,9 +40,9 @@ const PLANS = [
         price: "Custom",
         period: "",
         features: [
-            "Tim konten dedicated",
+            "Tim produksi dedicated",
             "Brand film + campaign",
-            "Multi-platform produksi",
+            "Volume konten besar",
             "Strategy session bulanan",
             "Priority support",
         ],
@@ -58,23 +58,23 @@ export const Plans = () => {
         <section
             id="plans"
             data-testid="plans-section"
-            className="relative py-20 md:py-32"
+            className="relative py-14 md:py-20"
         >
             <div className="max-w-[1180px] mx-auto px-6 md:px-10">
-                <div ref={r1} className="reveal text-center mb-14 md:mb-20">
+                <div ref={r1} className="reveal text-center mb-10 md:mb-14">
                     <h2
                         className="font-display tracking-[-0.03em] text-[#0B1120] max-w-[820px] mx-auto"
                         style={{
-                            fontSize: "clamp(2rem, 5vw, 4rem)",
+                            fontSize: "clamp(2rem, 4.5vw, 3.4rem)",
                             lineHeight: 1.05,
                             fontWeight: 400,
                         }}
                     >
-                        Pilih paket yang cocok untuk brand Anda.
+                        Paket produksi konten yang fleksibel.
                     </h2>
-                    <p className="mt-5 text-base md:text-lg text-[#1D1D1F]/65 max-w-[600px] mx-auto">
-                        Semua paket sudah termasuk shoot, edit, scheduling, dan
-                        revisi. Tanpa biaya tersembunyi.
+                    <p className="mt-4 text-base md:text-lg text-[#1D1D1F]/65 max-w-[600px] mx-auto">
+                        Semua paket sudah termasuk shoot, edit, dan delivery file
+                        siap pakai. Tanpa biaya tersembunyi.
                     </p>
                 </div>
 
@@ -87,7 +87,7 @@ export const Plans = () => {
                     ))}
                 </div>
 
-                <div className="mt-10 text-center text-sm text-[#1D1D1F]/50">
+                <div className="mt-8 text-center text-sm text-[#1D1D1F]/50">
                     Kebutuhan khusus? Kami buatkan paket custom — chat kami di
                     WhatsApp.
                 </div>
@@ -145,7 +145,7 @@ const PlanCard = ({ p }) => {
             </div>
 
             <ul
-                className={`mt-7 space-y-3 text-sm ${p.highlight ? "text-white/85" : "text-[#1D1D1F]/80"} flex-1`}
+                className={`mt-6 space-y-2.5 text-sm ${p.highlight ? "text-white/85" : "text-[#1D1D1F]/80"} flex-1`}
             >
                 {p.features.map((f) => (
                     <li key={f} className="flex items-start gap-2.5">
@@ -163,7 +163,7 @@ const PlanCard = ({ p }) => {
                 href={waLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`mt-8 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full font-medium text-sm transition-all ${
+                className={`mt-7 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full font-medium text-sm transition-all ${
                     p.highlight
                         ? "bg-white text-[#0B1120] hover:bg-[#7E94FF] hover:text-white"
                         : "bg-[#0B1120] text-white hover:bg-[#2A4FE0]"
