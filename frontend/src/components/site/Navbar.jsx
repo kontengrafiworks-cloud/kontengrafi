@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { waLink } from "@/lib/contacts";
-import { Pinwheel, BRAND } from "@/lib/brand";
+import { BRAND } from "@/lib/brand";
 
 const NAV_ITEMS = [
     { label: "Cara Kerja", href: "#beside" },
@@ -36,8 +36,7 @@ export const Navbar = () => {
                     href="#top"
                     className="flex items-center gap-2 text-[#0B1120]"
                 >
-                    <Pinwheel className="w-5 h-5 text-[#2A4FE0]" />
-                    <span className="font-medium text-base md:text-lg tracking-tight">
+                    <span className="font-semibold text-base md:text-lg tracking-tight">
                         {BRAND.name}
                     </span>
                 </a>

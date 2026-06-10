@@ -1,5 +1,5 @@
 import { CONTACT } from "@/lib/contacts";
-import { BRAND, Pinwheel } from "@/lib/brand";
+import { BRAND } from "@/lib/brand";
 
 export const Footer = () => {
     return (
@@ -9,8 +9,7 @@ export const Footer = () => {
         >
             <div className="max-w-[1280px] mx-auto px-6 md:px-10 pt-16 pb-10">
                 <div className="flex items-center gap-2 mb-10 text-[#0B1120]">
-                    <Pinwheel className="w-5 h-5 text-[#2A4FE0]" />
-                    <span className="font-medium text-lg tracking-tight">
+                    <span className="font-semibold text-lg tracking-tight">
                         {BRAND.name}
                     </span>
                 </div>
