@@ -1,11 +1,11 @@
 // Central place for contact links so they can be swapped easily later.
 export const CONTACT = {
     brand: "Kontengrafi",
-    whatsappNumber: "6281234567890",
+    whatsappNumber: "6281995555169",
     whatsappMessage:
         "Halo Kontengrafi, saya tertarik untuk berdiskusi tentang produksi konten.",
-    instagram: "https://instagram.com/kontengrafi",
-    tiktok: "https://tiktok.com/@kontengrafi",
+    instagram: "https://instagram.com/kontengrafi.works",
+    tiktok: "https://tiktok.com/@kontengrafi.works",
     email: "halo@kontengrafi.id",
 };
 
