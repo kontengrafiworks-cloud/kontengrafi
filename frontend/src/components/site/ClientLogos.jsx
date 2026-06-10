@@ -23,7 +23,7 @@ const CLIENTS = [
     },
 ];
 
-// Duplicate clients to enable seamless marquee loop
+// Duplicate for seamless marquee loop
 const TRACK = [...CLIENTS, ...CLIENTS];
 
 export const ClientLogos = () => {
@@ -33,42 +33,52 @@ export const ClientLogos = () => {
         <section
             id="clients"
             data-testid="clients-section"
-            className="relative py-8 md:py-10"
+            className="relative py-12 md:py-16"
         >
             <div className="max-w-[1280px] mx-auto px-6 md:px-10">
                 <div
                     ref={rHead}
-                    className="reveal text-center mb-6 md:mb-8"
+                    className="reveal text-center mb-8 md:mb-10"
                 >
-                    <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-[#1D1D1F]/55">
+                    <div className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-[#1D1D1F]/55">
                         <span className="w-6 h-px bg-[#0B1120]/20" />
                         Dipercaya oleh
                         <span className="w-6 h-px bg-[#0B1120]/20" />
                     </div>
                 </div>
 
-                {/* Marquee */}
-                <div className="relative overflow-hidden">
-                    <div className="flex items-center gap-4 md:gap-6 animate-marquee whitespace-nowrap">
+                {/* Marquee — vertical padding lets shadow & cards breathe */}
+                <div className="relative overflow-hidden py-3">
+                    <div className="flex items-center gap-5 md:gap-7 animate-marquee whitespace-nowrap">
                         {TRACK.map((c, i) => (
                             <div
                                 key={`${c.name}-${i}`}
                                 data-testid={`client-logo-${i}`}
-                                className="flex-shrink-0 h-16 md:h-20 w-32 md:w-40 bg-white border border-[#0B1120]/8 rounded-xl grid place-items-center p-3 md:p-4 shadow-[0_4px_14px_-8px_rgba(11,17,32,0.12)]"
+                                className="flex-shrink-0 bg-white border border-[#0B1120]/8 rounded-2xl shadow-[0_4px_18px_-8px_rgba(11,17,32,0.15)] flex items-center justify-center"
+                                style={{
+                                    width: "168px",
+                                    height: "112px",
+                                    padding: "16px",
+                                }}
                                 title={c.name}
                             >
                                 <img
                                     src={c.logo}
                                     alt={c.name}
                                     loading="lazy"
-                                    className="max-h-full max-w-full object-contain"
+                                    className="block object-contain"
+                                    style={{
+                                        maxWidth: "100%",
+                                        maxHeight: "100%",
+                                        width: "auto",
+                                        height: "auto",
+                                    }}
                                 />
                             </div>
                         ))}
                     </div>
-                    {/* Edge fade matching page bg */}
-                    <div className="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-24 bg-gradient-to-r from-[#F4F6FA] to-transparent" />
-                    <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-24 bg-gradient-to-l from-[#F4F6FA] to-transparent" />
+                    <div className="pointer-events-none absolute inset-y-0 left-0 w-20 md:w-28 bg-gradient-to-r from-[#F4F6FA] to-transparent" />
+                    <div className="pointer-events-none absolute inset-y-0 right-0 w-20 md:w-28 bg-gradient-to-l from-[#F4F6FA] to-transparent" />
                 </div>
             </div>
         </section>
