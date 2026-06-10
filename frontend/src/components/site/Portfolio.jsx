@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Play, X } from "lucide-react";
+import { useRef, useState } from "react";
+import { Play, X, ChevronLeft, ChevronRight } from "lucide-react";
 import {
     Dialog,
     DialogContent,
@@ -7,18 +7,17 @@ import {
 import { useReveal } from "@/lib/reveal";
 import { PORTFOLIO, FILTERS } from "@/lib/portfolio";
 
-const matchesFilter = (item, filter) => {
-    if (filter === "all") return true;
-    if (filter === "photo" || filter === "video") return item.type === filter;
-    return item.cat === filter;
-};
-
 export const Portfolio = () => {
-    const [filter, setFilter] = useState("all");
+    const [filter, setFilter] = useState(FILTERS[0].id);
     const [active, setActive] = useState(null);
     const rHead = useReveal(0);
+    const scrollRef = useRef(null);
 
-    const items = PORTFOLIO.filter((it) => matchesFilter(it, filter));
+    const items = PORTFOLIO.filter((it) => it.cat === filter);
+
+    const scrollBy = (delta) => {
+        scrollRef.current?.scrollBy({ left: delta, behavior: "smooth" });
+    };
 
     return (
         <section
@@ -29,7 +28,7 @@ export const Portfolio = () => {
             <div className="max-w-[1280px] mx-auto px-6 md:px-10">
                 <div
                     ref={rHead}
-                    className="reveal flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8 md:mb-10"
+                    className="reveal flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8"
                 >
                     <h2
                         className="font-display tracking-[-0.03em] text-[#0B1120]"
@@ -43,41 +42,73 @@ export const Portfolio = () => {
                         Karya yang kami produksi.
                     </h2>
                     <p className="text-sm md:text-base text-[#1D1D1F]/60 max-w-md">
-                        Pilihan foto & video dari berbagai brand — klik untuk
-                        lihat versi penuh.
+                        Geser ke samping untuk lihat lebih banyak — klik
+                        untuk versi penuh.
                     </p>
                 </div>
 
-                {/* Filter tabs */}
-                <div
-                    data-testid="portfolio-filters"
-                    className="flex flex-wrap gap-2 mb-8"
-                >
-                    {FILTERS.map((f) => (
+                {/* Filter tabs + arrow controls */}
+                <div className="flex items-center justify-between gap-4 mb-6">
+                    <div
+                        data-testid="portfolio-filters"
+                        className="flex flex-wrap gap-2"
+                    >
+                        {FILTERS.map((f) => (
+                            <button
+                                key={f.id}
+                                data-testid={`filter-${f.id}`}
+                                onClick={() => {
+                                    setFilter(f.id);
+                                    scrollRef.current?.scrollTo({ left: 0 });
+                                }}
+                                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                                    filter === f.id
+                                        ? "bg-[#0B1120] text-white"
+                                        : "bg-white border border-[#0B1120]/10 text-[#0B1120] hover:border-[#0B1120]/30"
+                                }`}
+                            >
+                                {f.label}
+                            </button>
+                        ))}
+                    </div>
+
+                    <div className="hidden md:flex items-center gap-2">
                         <button
-                            key={f.id}
-                            data-testid={`filter-${f.id}`}
-                            onClick={() => setFilter(f.id)}
-                            className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                                filter === f.id
-                                    ? "bg-[#0B1120] text-white"
-                                    : "bg-white border border-[#0B1120]/10 text-[#0B1120] hover:border-[#0B1120]/30"
-                            }`}
+                            data-testid="portfolio-prev"
+                            onClick={() => scrollBy(-480)}
+                            className="w-10 h-10 rounded-full bg-white border border-[#0B1120]/10 hover:border-[#0B1120]/40 grid place-items-center text-[#0B1120] transition-all"
+                            aria-label="Previous"
                         >
-                            {f.label}
+                            <ChevronLeft size={18} />
                         </button>
-                    ))}
+                        <button
+                            data-testid="portfolio-next"
+                            onClick={() => scrollBy(480)}
+                            className="w-10 h-10 rounded-full bg-white border border-[#0B1120]/10 hover:border-[#0B1120]/40 grid place-items-center text-[#0B1120] transition-all"
+                            aria-label="Next"
+                        >
+                            <ChevronRight size={18} />
+                        </button>
+                    </div>
                 </div>
 
-                {/* Grid */}
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
-                    {items.map((item) => (
-                        <Card
-                            key={item.id}
-                            item={item}
-                            onOpen={() => setActive(item)}
-                        />
-                    ))}
+                {/* Horizontal slider */}
+                <div className="relative">
+                    <div
+                        ref={scrollRef}
+                        data-testid="portfolio-track"
+                        className="flex gap-3 md:gap-4 overflow-x-auto snap-x snap-mandatory pb-3 no-scrollbar -mx-6 md:-mx-10 px-6 md:px-10"
+                    >
+                        {items.map((item) => (
+                            <Card
+                                key={item.id}
+                                item={item}
+                                onOpen={() => setActive(item)}
+                            />
+                        ))}
+                    </div>
+                    {/* edge fade */}
+                    <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-[#F4F6FA] to-transparent hidden md:block" />
                 </div>
 
                 {items.length === 0 && (
@@ -87,7 +118,6 @@ export const Portfolio = () => {
                 )}
             </div>
 
-            {/* Lightbox modal */}
             <Lightbox item={active} onClose={() => setActive(null)} />
         </section>
     );
@@ -98,7 +128,7 @@ const Card = ({ item, onOpen }) => {
         <button
             data-testid={`portfolio-item-${item.id}`}
             onClick={onOpen}
-            className="group relative block overflow-hidden rounded-xl bg-[#0B1120]/5 aspect-[4/5] focus:outline-none focus:ring-2 focus:ring-[#2A4FE0] focus:ring-offset-2 focus:ring-offset-[#F4F6FA]"
+            className="group relative shrink-0 snap-start overflow-hidden rounded-xl bg-[#0B1120]/5 w-60 md:w-72 lg:w-80 aspect-[4/5] focus:outline-none focus:ring-2 focus:ring-[#2A4FE0] focus:ring-offset-2 focus:ring-offset-[#F4F6FA]"
         >
             <img
                 src={item.thumb}
@@ -120,7 +150,7 @@ const Card = ({ item, onOpen }) => {
 
             <div className="absolute bottom-0 left-0 right-0 p-3 text-left opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all">
                 <div className="text-[10px] uppercase tracking-wider text-white/80">
-                    {item.cat}
+                    {item.type}
                 </div>
                 <div className="text-sm font-semibold text-white truncate">
                     {item.title}
@@ -177,14 +207,12 @@ const Lightbox = ({ item, onClose }) => {
                             )}
                         </div>
 
-                        <div className="px-5 py-4 flex items-center justify-between text-sm">
-                            <div>
-                                <div className="text-xs uppercase tracking-wider text-white/50">
-                                    {item.cat} · {item.type}
-                                </div>
-                                <div className="font-semibold mt-0.5">
-                                    {item.title}
-                                </div>
+                        <div className="px-5 py-4 text-sm">
+                            <div className="text-xs uppercase tracking-wider text-white/50">
+                                {item.cat} · {item.type}
+                            </div>
+                            <div className="font-semibold mt-0.5">
+                                {item.title}
                             </div>
                         </div>
                     </div>
