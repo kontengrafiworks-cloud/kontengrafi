@@ -26,12 +26,12 @@ const MARQUEE_PLATFORMS = [
 // Annotation: "kami bantu" caption + arrow CLEARLY pointing left at icons cluster
 const KamiBantuAnnotation = () => (
     <span
-        className="inline-flex items-end gap-1 align-bottom ml-2 md:ml-3 pb-1"
+        className="inline-flex items-end gap-1 align-bottom ml-1.5 md:ml-2 pb-0.5"
         aria-hidden
     >
         <svg
-            width="56"
-            height="40"
+            width="40"
+            height="28"
             viewBox="0 0 56 40"
             fill="none"
             stroke="currentColor"
@@ -40,13 +40,11 @@ const KamiBantuAnnotation = () => (
             strokeLinejoin="round"
             className="text-[#0B1120]/70"
         >
-            {/* Arrow curving from right going LEFT to point at icons */}
             <path d="M 52 32 C 38 30, 22 24, 8 14" />
-            {/* Arrowhead at left end */}
             <path d="M 4 18 L 8 8 L 16 14" />
         </svg>
         <span
-            className="text-xl md:text-3xl text-[#0B1120]/80 leading-none whitespace-nowrap"
+            className="text-sm md:text-lg text-[#0B1120]/80 leading-none whitespace-nowrap"
             style={{ fontFamily: "'Caveat', cursive", fontWeight: 600 }}
         >
             kami bantu
@@ -87,13 +85,13 @@ export const Hero = () => {
                 {/* Icons cluster + arrow annotation — BELOW headline */}
                 <div
                     ref={r2}
-                    className="reveal mt-10 md:mt-14 flex items-end justify-center flex-wrap gap-2"
+                    className="reveal mt-6 md:mt-8 flex items-end justify-center flex-wrap gap-2"
                 >
-                    <div className="flex items-center -space-x-2 md:-space-x-3">
+                    <div className="flex items-center -space-x-1.5 md:-space-x-2">
                         {INLINE_PLATFORMS.map((slug, i) => (
                             <span
                                 key={slug}
-                                className="grid place-items-center w-11 h-11 md:w-16 md:h-16 bg-white rounded-xl md:rounded-2xl border border-[#0B1120]/10 shadow-[0_8px_20px_-8px_rgba(11,17,32,0.18)] ring-1 ring-white"
+                                className="grid place-items-center w-8 h-8 md:w-11 md:h-11 bg-white rounded-lg md:rounded-xl border border-[#0B1120]/10 shadow-[0_6px_14px_-6px_rgba(11,17,32,0.18)] ring-1 ring-white"
                                 style={{
                                     zIndex: 10 - i,
                                     transform: `rotate(${(i % 2 === 0 ? -1 : 1) * 3}deg)`,
@@ -102,7 +100,7 @@ export const Hero = () => {
                                 <img
                                     src={`https://cdn.simpleicons.org/${slug}/0B1120`}
                                     alt=""
-                                    className="w-5 h-5 md:w-8 md:h-8"
+                                    className="w-4 h-4 md:w-5 md:h-5"
                                     loading="lazy"
                                 />
                             </span>
@@ -114,7 +112,7 @@ export const Hero = () => {
                 {/* Sub copy */}
                 <p
                     ref={r3}
-                    className="reveal mt-10 md:mt-12 max-w-[640px] mx-auto text-base md:text-lg text-[#1D1D1F]/70 leading-relaxed"
+                    className="reveal mt-6 md:mt-8 max-w-[640px] mx-auto text-base md:text-lg text-[#1D1D1F]/70 leading-relaxed"
                 >
                     Kontengrafi adalah studio yang{" "}
                     <span className="text-[#0B1120] font-medium underline decoration-[#2A4FE0]/50 decoration-2 underline-offset-4">
@@ -127,7 +125,7 @@ export const Hero = () => {
                 {/* CTAs */}
                 <div
                     ref={r4}
-                    className="reveal mt-8 flex flex-wrap items-center justify-center gap-4"
+                    className="reveal mt-6 flex flex-wrap items-center justify-center gap-4"
                 >
                     <a
                         data-testid="hero-cta-primary"
@@ -144,7 +142,7 @@ export const Hero = () => {
                 </div>
 
                 {/* Platforms marquee strip */}
-                <div className="mt-16 md:mt-20">
+                <div className="mt-12 md:mt-16">
                     <div className="text-xs text-[#1D1D1F]/40 mb-5">
                         Konten siap pakai untuk semua platform brand Anda
                     </div>
