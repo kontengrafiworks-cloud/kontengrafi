@@ -98,6 +98,10 @@ export const Portfolio = () => {
                         ref={scrollRef}
                         data-testid="portfolio-track"
                         className="flex gap-3 md:gap-4 overflow-x-auto snap-x snap-mandatory pb-3 no-scrollbar -mx-6 md:-mx-10 px-6 md:px-10"
+                        style={{
+                            scrollBehavior: "smooth",
+                            WebkitOverflowScrolling: "touch",
+                        }}
                     >
                         {items.map((item) => (
                             <Card
@@ -134,7 +138,8 @@ const Card = ({ item, onOpen }) => {
                 src={item.thumb}
                 alt={item.title}
                 loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                decoding="async"
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.03] will-change-transform"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0B1120]/75 via-[#0B1120]/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
