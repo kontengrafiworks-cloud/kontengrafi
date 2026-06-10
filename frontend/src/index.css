@@ -1,6 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -12,27 +10,20 @@ html {
 
 body {
     margin: 0;
-    font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
         sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #f4eedf;
-    color: #14183a;
-    font-feature-settings: "ss01", "cv11";
+    background-color: #f4f6fa;
+    color: #1d1d1f;
+    font-feature-settings:
+        "ss01",
+        "cv11";
 }
 
 .font-display {
-    font-family: "Manrope", sans-serif;
+    font-family: "Inter", sans-serif;
     letter-spacing: -0.02em;
-}
-.font-serif-italic {
-    font-family: "Instrument Serif", serif;
-    font-style: italic;
-    font-weight: 400;
-    letter-spacing: -0.01em;
-}
-.font-mono {
-    font-family: "IBM Plex Mono", monospace;
 }
 
 ::selection {
@@ -51,22 +42,6 @@ body {
 }
 .animate-marquee {
     animation: marquee 40s linear infinite;
-}
-.animate-marquee-fast {
-    animation: marquee 22s linear infinite;
-}
-
-/* Slow spin (pinwheel) */
-@keyframes spin-slow {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-.animate-spin-slow {
-    animation: spin-slow 28s linear infinite;
 }
 
 /* Fade in up */
@@ -87,43 +62,46 @@ body {
     animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-/* Subtle paper / noise texture */
-.paper {
-    background-color: #f4eedf;
-    background-image:
-        radial-gradient(
-            circle at 20% 10%,
-            rgba(42, 79, 224, 0.05),
-            transparent 40%
-        ),
-        radial-gradient(
-            circle at 80% 90%,
-            rgba(42, 79, 224, 0.04),
-            transparent 40%
-        );
-}
-
-.noise-overlay::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.07;
-    mix-blend-mode: multiply;
-    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.7'/></svg>");
-}
-
-/* Dotted divider */
-.dotted-line {
-    background-image: linear-gradient(
-        to right,
-        rgba(20, 24, 58, 0.25) 50%,
-        transparent 50%
+/* Invoko-style dotted grid background */
+.bg-dot-grid {
+    background-image: radial-gradient(
+        rgba(11, 17, 32, 0.08) 1px,
+        transparent 1px
     );
-    background-size: 8px 1px;
-    background-repeat: repeat-x;
-    background-position: center;
-    height: 1px;
+    background-size: 24px 24px;
+}
+
+/* Subtle horizontal/vertical thin grid lines (Invoko bento grid) */
+.bg-bento-grid {
+    background-image:
+        linear-gradient(
+            to right,
+            rgba(11, 17, 32, 0.05) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            to bottom,
+            rgba(11, 17, 32, 0.05) 1px,
+            transparent 1px
+        );
+    background-size: 64px 64px;
+}
+
+/* Mac-style key chip */
+.key-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.5em;
+    height: 1em;
+    min-width: 1.2em;
+    font-size: 0.85em;
+    background: #1d1d1f;
+    color: #fff;
+    border-radius: 0.25em;
+    box-shadow:
+        inset 0 -1px 0 rgba(255, 255, 255, 0.15),
+        0 1px 0 rgba(0, 0, 0, 0.3);
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -136,26 +114,26 @@ body {
 
 @layer base {
     :root {
-        --background: 42 50% 92%;
-        --foreground: 232 47% 16%;
+        --background: 218 33% 97%;
+        --foreground: 220 8% 9%;
         --card: 0 0% 100%;
-        --card-foreground: 232 47% 16%;
+        --card-foreground: 220 8% 9%;
         --popover: 0 0% 100%;
-        --popover-foreground: 232 47% 16%;
+        --popover-foreground: 220 8% 9%;
         --primary: 228 75% 52%;
         --primary-foreground: 0 0% 100%;
-        --secondary: 42 40% 88%;
-        --secondary-foreground: 232 47% 16%;
-        --muted: 42 30% 88%;
-        --muted-foreground: 232 12% 40%;
-        --accent: 42 40% 88%;
-        --accent-foreground: 232 47% 16%;
+        --secondary: 218 33% 94%;
+        --secondary-foreground: 220 8% 9%;
+        --muted: 218 33% 94%;
+        --muted-foreground: 220 8% 40%;
+        --accent: 218 33% 94%;
+        --accent-foreground: 220 8% 9%;
         --destructive: 0 84.2% 60.2%;
         --destructive-foreground: 0 0% 98%;
-        --border: 232 20% 86%;
-        --input: 232 20% 86%;
+        --border: 220 13% 91%;
+        --input: 220 13% 91%;
         --ring: 228 75% 52%;
-        --radius: 1rem;
+        --radius: 0.75rem;
     }
 }
 

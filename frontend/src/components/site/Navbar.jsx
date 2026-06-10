@@ -24,39 +24,31 @@ export const Navbar = () => {
     return (
         <header
             data-testid="site-navbar"
-            className={`fixed top-3 md:top-5 left-0 right-0 z-50 px-4 transition-all duration-500`}
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+                scrolled
+                    ? "bg-[#F4F6FA]/85 backdrop-blur-xl border-b border-[#0B1120]/8"
+                    : "bg-transparent"
+            }`}
         >
-            <nav
-                className={`max-w-[1240px] mx-auto h-14 md:h-16 px-3 md:px-4 flex items-center justify-between rounded-full transition-all duration-500 ${
-                    scrolled
-                        ? "bg-white/90 backdrop-blur-xl shadow-[0_4px_24px_-8px_rgba(20,24,58,0.18)] border border-[#14183A]/8"
-                        : "bg-white/60 backdrop-blur-md border border-white/40"
-                }`}
-            >
+            <nav className="max-w-[1280px] mx-auto h-16 md:h-20 px-6 md:px-10 flex items-center justify-between">
                 <a
                     data-testid="nav-logo"
                     href="#top"
-                    className="flex items-center gap-2 pl-2 group"
+                    className="flex items-center gap-2 text-[#0B1120]"
                 >
-                    <span className="w-8 h-8 rounded-full bg-[#2A4FE0] grid place-items-center text-white">
-                        <Pinwheel className="w-5 h-5 group-hover:rotate-90 transition-transform duration-500" />
-                    </span>
-                    <span className="font-display font-bold text-base md:text-[15px] tracking-tight text-[#14183A]">
+                    <Pinwheel className="w-5 h-5 text-[#2A4FE0]" />
+                    <span className="font-medium text-base md:text-lg tracking-tight">
                         {BRAND.name}
-                        <span className="text-[#2A4FE0]">.</span>
-                        <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#14183A]/50 ml-1.5">
-                            {BRAND.suffix}
-                        </span>
                     </span>
                 </a>
 
-                <ul className="hidden lg:flex items-center gap-1">
+                <ul className="hidden lg:flex items-center gap-8">
                     {NAV_ITEMS.map((item) => (
                         <li key={item.href}>
                             <a
                                 data-testid={`nav-link-${item.label.toLowerCase().replaceAll(" ", "-")}`}
                                 href={item.href}
-                                className="px-3.5 py-1.5 text-sm font-medium text-[#14183A]/75 hover:text-[#14183A] hover:bg-[#14183A]/5 rounded-full transition-all"
+                                className="text-sm font-medium text-[#1D1D1F]/70 hover:text-[#0B1120] transition-colors"
                             >
                                 {item.label}
                             </a>
@@ -69,7 +61,7 @@ export const Navbar = () => {
                     href={waLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hidden lg:inline-flex items-center gap-2 bg-[#14183A] hover:bg-[#2A4FE0] text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300"
+                    className="hidden lg:inline-flex items-center gap-2 bg-[#2A4FE0] hover:bg-[#1F3DBF] text-white px-5 py-2.5 rounded-full text-sm font-medium transition-all"
                 >
                     Mulai Sekarang
                 </a>
@@ -77,7 +69,7 @@ export const Navbar = () => {
                 <button
                     data-testid="nav-mobile-toggle"
                     onClick={() => setOpen(!open)}
-                    className="lg:hidden w-10 h-10 grid place-items-center rounded-full hover:bg-[#14183A]/5 text-[#14183A]"
+                    className="lg:hidden w-10 h-10 grid place-items-center rounded-full hover:bg-[#0B1120]/5 text-[#0B1120]"
                     aria-label="Toggle menu"
                 >
                     {open ? <X size={18} /> : <Menu size={18} />}
@@ -87,28 +79,28 @@ export const Navbar = () => {
             {open && (
                 <div
                     data-testid="nav-mobile-menu"
-                    className="lg:hidden mt-2 mx-auto max-w-[1240px] bg-white rounded-3xl border border-[#14183A]/10 shadow-xl"
+                    className="lg:hidden bg-white border-t border-[#0B1120]/8"
                 >
-                    <ul className="p-3">
+                    <ul className="px-6 py-4">
                         {NAV_ITEMS.map((item) => (
                             <li key={item.href}>
                                 <a
                                     data-testid={`nav-mobile-link-${item.label.toLowerCase().replaceAll(" ", "-")}`}
                                     href={item.href}
                                     onClick={() => setOpen(false)}
-                                    className="block px-4 py-3 text-base font-medium text-[#14183A] hover:bg-[#14183A]/5 rounded-2xl"
+                                    className="block px-2 py-3 text-base font-medium text-[#0B1120] border-b border-[#0B1120]/5 last:border-b-0"
                                 >
                                     {item.label}
                                 </a>
                             </li>
                         ))}
-                        <li className="p-1 pt-2">
+                        <li className="pt-3">
                             <a
                                 data-testid="nav-mobile-cta"
                                 href={waLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="block text-center bg-[#14183A] text-white px-5 py-3 rounded-2xl text-sm font-semibold"
+                                className="block text-center bg-[#2A4FE0] text-white px-5 py-3 rounded-full text-sm font-medium"
                             >
                                 Mulai Sekarang
                             </a>

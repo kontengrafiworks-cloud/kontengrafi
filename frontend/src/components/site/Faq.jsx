@@ -8,8 +8,12 @@ import { useReveal } from "@/lib/reveal";
 
 const ITEMS = [
     {
-        q: "Apakah Kontengrafi hanya untuk brand fashion dan F&B?",
-        a: "Kami memang berfokus di dua niche itu karena di situ kami paling kuat. Tapi kalau brand Anda di luar fashion / F&B dan ceritanya sejalan dengan kekuatan visual kami, kami tetap bisa diskusikan. Chat WhatsApp dulu saja.",
+        q: "Brand seperti apa yang cocok dengan Kontengrafi?",
+        a: "Hampir semua. Kami memproduksi UGC dan commercial content untuk brand di berbagai industri — fashion, F&B, beauty, SaaS, UMKM, e-commerce, hingga personal brand. Selama brand Anda butuh konten yang konsisten, kami bisa bantu.",
+    },
+    {
+        q: "Apa bedanya UGC dan commercial content?",
+        a: "UGC (User-Generated Content) terasa lebih natural, seperti dibuat sendiri oleh pengguna — cocok untuk social ads dan engagement. Commercial content lebih polished dan sinematik — untuk campaign besar, billboard, atau brand video. Kontengrafi mengerjakan keduanya.",
     },
     {
         q: "Berapa lama dari brief sampai konten siap tayang?",
@@ -35,10 +39,6 @@ const ITEMS = [
         q: "Apa platform yang dicover?",
         a: "Instagram, TikTok, YouTube Shorts, Pinterest, dan storefront e-commerce (Shopee, Tokopedia, TikTok Shop). Kami juga menyiapkan versi rasio yang sesuai untuk masing-masing.",
     },
-    {
-        q: "Lokasi shooting di mana?",
-        a: "Studio kami di Jakarta, namun kami sering shoot on-location di Bandung, Bali, dan Surabaya. Untuk klien di luar Jabodetabek, kami diskusikan akomodasi terpisah.",
-    },
 ];
 
 export const Faq = () => {
@@ -48,45 +48,39 @@ export const Faq = () => {
         <section
             id="faq"
             data-testid="faq-section"
-            className="relative py-24 md:py-36"
+            className="relative py-20 md:py-32"
         >
             <div className="max-w-[860px] mx-auto px-6 md:px-10">
-                <div ref={rHead} className="reveal text-center mb-14">
-                    <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#2A4FE0] mb-5">
-                        ( FAQ )
-                    </div>
+                <div ref={rHead} className="reveal text-center mb-12">
                     <h2
-                        className="font-display font-bold tracking-[-0.03em] text-[#14183A]"
+                        className="font-display tracking-[-0.03em] text-[#0B1120]"
                         style={{
                             fontSize: "clamp(2rem, 5vw, 3.6rem)",
                             lineHeight: 1.05,
+                            fontWeight: 400,
                         }}
                     >
-                        Tanya jawab{" "}
-                        <span className="font-serif-italic text-[#2A4FE0] font-normal">
-                            singkat
-                        </span>
-                        .
+                        Ask &amp; Answered
                     </h2>
                 </div>
 
                 <Accordion
                     type="single"
                     collapsible
-                    className="w-full bg-white border border-[#14183A]/10 rounded-3xl overflow-hidden"
+                    className="w-full"
                     data-testid="faq-accordion"
                 >
                     {ITEMS.map((item, idx) => (
                         <AccordionItem
                             key={idx}
                             value={`item-${idx}`}
-                            className="border-b border-[#14183A]/8 last:border-b-0"
+                            className="border-b border-[#0B1120]/10"
                             data-testid={`faq-item-${idx}`}
                         >
-                            <AccordionTrigger className="px-6 md:px-8 py-5 text-left text-base md:text-lg font-semibold text-[#14183A] hover:no-underline hover:bg-[#14183A]/2">
+                            <AccordionTrigger className="py-5 text-left text-base md:text-lg font-medium text-[#0B1120] hover:no-underline">
                                 {item.q}
                             </AccordionTrigger>
-                            <AccordionContent className="px-6 md:px-8 pb-6 text-base text-[#14183A]/70 leading-relaxed">
+                            <AccordionContent className="pb-6 text-base text-[#1D1D1F]/65 leading-relaxed">
                                 {item.a}
                             </AccordionContent>
                         </AccordionItem>

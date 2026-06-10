@@ -13,7 +13,7 @@ export default function Landing() {
     return (
         <main
             data-testid="landing-page"
-            className="paper text-[#14183A] min-h-screen"
+            className="bg-[#F4F6FA] text-[#1D1D1F] min-h-screen"
         >
             <Navbar />
             <Hero />
