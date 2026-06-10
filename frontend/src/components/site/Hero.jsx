@@ -70,11 +70,11 @@ export const Hero = () => {
                 {/* Headline — full 2-line unit */}
                 <h1
                     ref={r1}
-                    className="reveal font-display tracking-[-0.035em] text-[#0B1120]"
+                    className="reveal font-display tracking-[-0.03em] text-[#0B1120]"
                     style={{
-                        fontSize: "clamp(2.4rem, 8.5vw, 7rem)",
-                        lineHeight: 1.02,
-                        fontWeight: 400,
+                        fontSize: "clamp(2rem, 5.5vw, 4.4rem)",
+                        lineHeight: 1.05,
+                        fontWeight: 700,
                     }}
                 >
                     A helping hand
@@ -112,14 +112,13 @@ export const Hero = () => {
                 {/* Sub copy */}
                 <p
                     ref={r3}
-                    className="reveal mt-6 md:mt-8 max-w-[640px] mx-auto text-base md:text-lg text-[#1D1D1F]/70 leading-relaxed"
+                    className="reveal mt-6 md:mt-8 max-w-[560px] mx-auto text-base md:text-lg text-[#1D1D1F]/70 leading-relaxed"
                 >
-                    Kontengrafi adalah studio yang{" "}
+                    Studio produksi foto & video — UGC dan{" "}
                     <span className="text-[#0B1120] font-medium underline decoration-[#2A4FE0]/50 decoration-2 underline-offset-4">
-                        memproduksi
+                        commercial content
                     </span>{" "}
-                    foto & video — UGC dan commercial content — untuk brand
-                    mana pun. File final siap pakai, Anda tinggal upload.
+                    untuk brand mana pun.
                 </p>
 
                 {/* CTAs */}
