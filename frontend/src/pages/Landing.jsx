@@ -1,7 +1,6 @@
 import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
 import { BesideYou } from "@/components/site/BesideYou";
-import { PermissionCards } from "@/components/site/PermissionCards";
 import { Process } from "@/components/site/Process";
 import { Portfolio } from "@/components/site/Portfolio";
 import { Testimonials } from "@/components/site/Testimonials";
@@ -19,7 +18,6 @@ export default function Landing() {
             <Navbar />
             <Hero />
             <BesideYou />
-            <PermissionCards />
             <Process />
             <Portfolio />
             <Testimonials />
