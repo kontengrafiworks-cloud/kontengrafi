@@ -67,34 +67,20 @@ export const Hero = () => {
             <div className="absolute inset-0 bg-dot-grid opacity-60 pointer-events-none" />
 
             <div className="relative max-w-[1280px] mx-auto px-6 md:px-10 text-center">
-                {/* Headline — both lines justified to equal width */}
+                {/* Headline */}
                 <h1
                     ref={r1}
-                    className="reveal font-display tracking-[-0.03em] text-[#0B1120] inline-block"
+                    className="reveal font-display tracking-[-0.03em] text-[#0B1120]"
                     style={{
                         fontSize: "clamp(2rem, 5.5vw, 4.4rem)",
                         lineHeight: 1.05,
                         fontWeight: 700,
+                        textWrap: "balance",
                     }}
                 >
-                    <span
-                        className="block"
-                        style={{
-                            textAlign: "justify",
-                            textAlignLast: "justify",
-                        }}
-                    >
-                        A helping hand
-                    </span>
-                    <span
-                        className="block"
-                        style={{
-                            textAlign: "justify",
-                            textAlignLast: "justify",
-                        }}
-                    >
-                        behind every post.
-                    </span>
+                    A helping hand
+                    <br />
+                    behind every post.
                 </h1>
 
                 {/* Icons cluster + arrow annotation — BELOW headline */}

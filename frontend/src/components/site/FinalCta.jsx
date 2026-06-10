@@ -1,4 +1,4 @@
-import { ArrowRight, Instagram, MessageCircle, Mail } from "lucide-react";
+import { ArrowRight, Instagram, MessageCircle } from "lucide-react";
 import { CONTACT, waLink } from "@/lib/contacts";
 import { useReveal } from "@/lib/reveal";
 
@@ -12,18 +12,6 @@ const AI_LINKS = [
         cdn: "openai",
         label: "Ask ChatGPT",
         href: `https://chat.openai.com/?q=${ASK_AI_PROMPT}`,
-    },
-    {
-        slug: "claude",
-        cdn: "claude",
-        label: "Ask Claude",
-        href: `https://claude.ai/new?q=${ASK_AI_PROMPT}`,
-    },
-    {
-        slug: "perplexity",
-        cdn: "perplexity",
-        label: "Ask Perplexity",
-        href: `https://www.perplexity.ai/?q=${ASK_AI_PROMPT}`,
     },
 ];
 
@@ -80,14 +68,6 @@ export const FinalCta = () => {
                     >
                         <Instagram size={16} />
                         Instagram
-                    </a>
-                    <a
-                        data-testid="final-cta-email"
-                        href={`mailto:${CONTACT.email}`}
-                        className="inline-flex items-center gap-2 bg-white border border-[#0B1120]/10 hover:border-[#0B1120]/30 text-[#0B1120] px-6 py-3.5 rounded-full text-sm md:text-base font-medium transition-all"
-                    >
-                        <Mail size={16} />
-                        Email
                     </a>
                 </div>
 
